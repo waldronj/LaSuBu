@@ -7,19 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace LuSuBu.Account
 {
-    public partial class Login : Page
+    public partial class Login : System.Web.UI.Page
     {
-        protected void Page_PreInit(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(Request.QueryString["content"]))
-            {
-                Response.Redirect("~/Account/LoginAjax.aspx");
-            }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+
         }
     }
 }

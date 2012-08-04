@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuSuBu
-{
-
-
-    public partial class _Default
-    {
+namespace LuSuBu {
+    
+    
+    public partial class Default {
     }
 }

@@ -67,47 +67,91 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Account\ChangePassword.aspx" />
-    <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\RegisterAjax.aspx" />
     <Content Include="Account\Login.aspx" />
-    <Content Include="Account\LoginAjax.aspx" />
+    <Content Include="Account\PasswordRecovery.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Contact.aspx" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\css\ie6.css" />
+    <Content Include="Content\css\ie7.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\accesory.jpg" />
+    <Content Include="Content\images\accessories.jpg" />
+    <Content Include="Content\images\advertisement.jpg" />
+    <Content Include="Content\images\aireen.jpg" />
+    <Content Include="Content\images\apparel.jpg" />
+    <Content Include="Content\images\apparel1.jpg" />
+    <Content Include="Content\images\apparel2.jpg" />
+    <Content Include="Content\images\apparel3.jpg" />
+    <Content Include="Content\images\apparel4.jpg" />
+    <Content Include="Content\images\apparel5.jpg" />
+    <Content Include="Content\images\apparel6.jpg" />
+    <Content Include="Content\images\apparel7.jpg" />
+    <Content Include="Content\images\apparel8.jpg" />
+    <Content Include="Content\images\aurora.jpg" />
+    <Content Include="Content\images\bath-set.jpg" />
+    <Content Include="Content\images\beach-bride.jpg" />
+    <Content Include="Content\images\beauty-box.jpg" />
+    <Content Include="Content\images\beauty-care.jpg" />
+    <Content Include="Content\images\bg-body-bottom.jpg" />
+    <Content Include="Content\images\bg-body-top.jpg" />
+    <Content Include="Content\images\bg-content.png" />
+    <Content Include="Content\images\bg-footer.png" />
+    <Content Include="Content\images\bg-menu-selected.gif" />
+    <Content Include="Content\images\bg-navigation.gif" />
+    <Content Include="Content\images\bg-top-navigation-left.png" />
+    <Content Include="Content\images\bg-top-navigation.png" />
+    <Content Include="Content\images\bg-top-navigation2.png" />
+    <Content Include="Content\images\blusher-brush.jpg" />
+    <Content Include="Content\images\border-top.gif" />
+    <Content Include="Content\images\bukasio.jpg" />
+    <Content Include="Content\images\carrot-soap.jpg" />
+    <Content Include="Content\images\charry.jpg" />
+    <Content Include="Content\images\cherry-lipstick.jpg" />
+    <Content Include="Content\images\chick-brush.jpg" />
+    <Content Include="Content\images\coin-bracelet.jpg" />
+    <Content Include="Content\images\comb-set.jpg" />
+    <Content Include="Content\images\diamond-necklace.jpg" />
+    <Content Include="Content\images\diapearl.jpg" />
+    <Content Include="Content\images\diaring.jpg" />
+    <Content Include="Content\images\divers-watch.jpg" />
+    <Content Include="Content\images\ep-sharpener.jpg" />
+    <Content Include="Content\images\essential-oils.jpg" />
+    <Content Include="Content\images\exfoliating-bath-kit.jpg" />
+    <Content Include="Content\images\eyebrow-comb.jpg" />
+    <Content Include="Content\images\fashionable.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\fine-curler.jpg" />
+    <Content Include="Content\images\haruka.jpg" />
+    <Content Include="Content\images\icons.gif" />
+    <Content Include="Content\images\interface.gif" />
+    <Content Include="Content\images\jewelry.jpg" />
+    <Content Include="Content\images\kurant.jpg" />
+    <Content Include="Content\images\lipper.jpg" />
+    <Content Include="Content\images\logo.gif" />
+    <Content Include="Content\images\massage-oils.jpg" />
+    <Content Include="Content\images\miols.jpg" />
+    <Content Include="Content\images\moisture-serum.jpg" />
+    <Content Include="Content\images\motherhood-apparel.jpg" />
+    <Content Include="Content\images\organic-soap.jpg" />
+    <Content Include="Content\images\passover.jpg" />
+    <Content Include="Content\images\pearl-jewel-set.jpg" />
+    <Content Include="Content\images\sberry-lipstick.jpg" />
+    <Content Include="Content\images\separator-blog.gif" />
+    <Content Include="Content\images\separator-dotted.gif" />
+    <Content Include="Content\images\shoes.jpg" />
+    <Content Include="Content\images\silver-watch.jpg" />
+    <Content Include="Content\images\skin-perfect.jpg" />
+    <Content Include="Content\images\summer-collection.jpg" />
+    <Content Include="Content\images\veronica.jpg" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\aspNetHome.png" />
     <Content Include="Images\bullet.png" />
+    <Content Include="Images\facebook-logo.jpg" />
     <Content Include="Images\facebook.png" />
+    <Content Include="Images\find-us-on-facebook-logo-png-i11-300x300.png" />
     <Content Include="Images\findHosting.png" />
     <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\LaSuBuDesigns.png" />
     <Content Include="Images\NuGetGallery.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
@@ -133,9 +177,9 @@
     </Content>
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Shop.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -146,28 +190,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\AccountHelpers.cs" />
-    <Compile Include="Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\RegisterAjax.aspx.cs">
-      <DependentUpon>RegisterAjax.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\RegisterAjax.aspx.designer.cs">
-      <DependentUpon>RegisterAjax.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,12 +197,12 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\LoginAjax.aspx.cs">
-      <DependentUpon>LoginAjax.aspx</DependentUpon>
+    <Compile Include="Account\PasswordRecovery.aspx.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\LoginAjax.aspx.designer.cs">
-      <DependentUpon>LoginAjax.aspx</DependentUpon>
+    <Compile Include="Account\PasswordRecovery.aspx.designer.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -188,13 +210,6 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -207,6 +222,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,7 +241,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
