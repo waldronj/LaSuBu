@@ -28,7 +28,7 @@
 			</div>
 		<div class="header">
             <div style="margin: auto">
-             <img src="Images/LaSuBuDesigns.png"  />
+             <img src="~/Images/LaSuBuDesigns.png" runat="server"  />
 			</div>
 			<div id="navigation">
 				<ul>
