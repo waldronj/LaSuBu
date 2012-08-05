@@ -51,10 +51,15 @@
 
 				
 			</div>
+            
 		</div>
+            <div style="text-align:center;">
+                <p>Follow us on Facebook</p>
+            <asp:ImageButton ID="btnFacebook" runat="server" PostBackUrl="http://facebook.com/pages/Lasubu-Designs/116285151752707" ImageUrl="~/Images/find-us-on-facebook-logo-png-i11-300x300.png" Height="75px" Width="75px" />
+                </div>
 		<div class="footer">  
-            <p><asp:ImageButton ID="btnFacebook" runat="server" PostBackUrl="http://facebook.com/pages/Lasubu-Designs/116285151752707" ImageUrl="~/Images/find-us-on-facebook-logo-png-i11-300x300.png" Height="75px" Width="75px" /></p>
-            <p>&#169; 2012 LaSuBu Designs. All Rights Reserved.</p>
+            <p>
+                &#169; 2012 LaSuBu Designs. All Rights Reserved.</p>
                 <p>Template design by <a href="http://www.freewebsitetemplates.com" target="_blank">FreeWebsiteTemplates.com</a></p>
 		</div>
         </form>

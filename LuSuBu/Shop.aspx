@@ -5,16 +5,17 @@
         EnableFlattening="False" EnableUpdate="True" 
         EntitySetName="StoreItems"></asp:EntityDataSource>
     <asp:ListView ID="lvShop" runat="server" DataKeyNames="Id" 
-        DataSourceID="dsStore" GroupItemCount="5">
+        DataSourceID="dsStore" GroupItemCount="5" 
+        OnSelectedIndexChanging="lvShop_SelectedIndexChanging">
         <AlternatingItemTemplate>
             <td id="Td1" runat="server" style="">
-                <asp:Image ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>' />
+                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'   CommandName="Select" Width="100px" Height="100px" />
                 <br />
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
-                <br />Cost:
-                <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost") %>'  />
-                
                 <br />
+                <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost", "{0:C}") %>'  />
+                <br />
+                
                 </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
@@ -85,13 +86,13 @@
       
         <ItemTemplate>
             <td runat="server" style="">
-                <asp:Image ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>' />
+                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'  CommandName="Select" Width="100px" Height="100px"/>
                 <br />
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
-                <br />Cost:
-                <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost") %>'  />
-                
                 <br />
+                <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost", "{0:C}") %>'  />                
+                <br />
+                
                 </td>
         </ItemTemplate>
         <LayoutTemplate>
@@ -131,5 +132,55 @@
                 <br />
                 </td>
         </SelectedItemTemplate>
+    </asp:ListView>
+
+    <asp:LinkButton ID="btnBackToShop" runat="server" Text="Back To Shop" OnClick="btnBackToShop_Click" />
+    <br />
+    <br />
+    <asp:ListView ID="lvSelectedItem" runat="server">
+        <ItemTemplate>
+            <asp:Image ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>' />
+                <br />
+                <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
+                <br />
+                <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost", "{0:C}") %>'  />                
+                <br />
+                
+            <br />
+            Size:   <asp:DropDownList ID="ddlSize" runat="server">
+                        <asp:ListItem>[- Select a Size -]</asp:ListItem>
+                        <asp:ListItem>S</asp:ListItem>
+                        <asp:ListItem>M</asp:ListItem>
+                        <asp:ListItem>L</asp:ListItem>
+                        <asp:ListItem>XL</asp:ListItem>
+                        <asp:ListItem>XXL</asp:ListItem>
+                    </asp:DropDownList>
+            <br />
+            Quantity: <asp:DropDownList ID="ddlQty" runat="server">
+                        <asp:ListItem>[- Select a Quantity -]</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>7</asp:ListItem>
+                        <asp:ListItem>8</asp:ListItem>
+                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>11</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
+                        <asp:ListItem>13</asp:ListItem>
+                        <asp:ListItem>14</asp:ListItem>
+                        <asp:ListItem>15</asp:ListItem>
+                        <asp:ListItem>16</asp:ListItem>
+                        <asp:ListItem>17</asp:ListItem>
+                        <asp:ListItem>18</asp:ListItem>
+                        <asp:ListItem>19</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                      </asp:DropDownList>
+            <br />
+            <asp:LinkButton ID="btnAddToCart" Text="Add To Cart" runat="server" OnClick="btnAddToCart_Click"></asp:LinkButton>
+        </ItemTemplate>
     </asp:ListView>
 </asp:Content>

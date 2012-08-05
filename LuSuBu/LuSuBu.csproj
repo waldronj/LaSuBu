@@ -234,6 +234,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\CartItem.cs" />
     <Compile Include="ContentManagement.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
@@ -291,9 +292,7 @@
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Site.Master" />
   </ItemGroup>
