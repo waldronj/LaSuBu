@@ -4,37 +4,15 @@
         ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
         EnableFlattening="False" EnableInsert="True" EnableUpdate="True" 
         EntitySetName="StoreItems"></asp:EntityDataSource>
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" 
+    <asp:ListView ID="lvModify" runat="server" DataKeyNames="Id" 
         DataSourceID="dsModifyStore" InsertItemPosition="LastItem">
-        <AlternatingItemTemplate>
-            <tr style="">
-                <td>
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                </td>
-                <td>
-                    <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DescriptionLabel" runat="server" 
-                        Text='<%# Eval("Description") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="ImageURLLabel" runat="server" Text='<%# Eval("ImageURL") %>' />
-                </td>
-            </tr>
-        </AlternatingItemTemplate>
+        
         <EditItemTemplate>
             <tr style="">
                 <td>
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" 
+                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" OnPreRender="AdminControl_PreRender"
                         Text="Update" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
                         Text="Cancel" />
                 </td>
                 <td>
@@ -67,9 +45,9 @@
         <InsertItemTemplate>
             <tr style="">
                 <td>
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" 
+                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" OnPreRender="AdminControl_PreRender"
                         Text="Insert" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
                         Text="Clear" />
                 </td>
                 <td>
@@ -95,7 +73,7 @@
         <ItemTemplate>
             <tr style="">
                 <td>
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" OnPreRender="AdminControl_PreRender"/>
                 </td>
                 <td>
                     <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />

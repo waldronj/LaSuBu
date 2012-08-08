@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using LuSuBu;
+using System.Web.UI.HtmlControls;
 
 namespace LuSuBu
 {
@@ -13,16 +14,13 @@ namespace LuSuBu
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HtmlGenericControl li = (HtmlGenericControl)Master.FindControl("b3");
+            li.Attributes["class"] = "selected";
         }
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            ShoppingCart();
-        }
-
-        protected void ShoppingCart()
-        {
+           
             LaSuBuContainer db = new LaSuBuContainer();
             //1) the product to be added
             StoreItems theproduct = (from p in db.StoreItems
@@ -34,14 +32,16 @@ namespace LuSuBu
             //get the tbbox
             //textbox tbqty = (textbox)dvselectedproduct.findcontrol("tbqty");
             //int qty = int.parse(tbqty.text);
-            DropDownList ddlQty = (DropDownList)lvSelectedItem.FindControl("ddlQty");
-            DropDownList ddlSize = (DropDownList)lvSelectedItem.FindControl("ddlSize");
+
+           // TextBox ddlQty = (TextBox).FindControl("ddlQty");
+            DropDownList ddlQty = (DropDownList)lvSelectedItem.Items[0].FindControl("ddlQty");
+            DropDownList ddlSize = (DropDownList)lvSelectedItem.Items[0].FindControl("ddlSize");
             Label lblTest = new Label();
-            lblTest.Text = ddlQty.SelectedValue.ToString();
+            // lblTest.Text = ddlQty.Text;
             //or
             int qty = int.Parse(ddlQty.SelectedValue.ToString());
-            string size = ddlSize.SelectedValue;
-
+            string size = ddlSize.SelectedValue.ToString();
+           
             //cart item
             CartItem item = new CartItem(theproduct, qty, size);
 
@@ -65,6 +65,15 @@ namespace LuSuBu
 
             //put the cart back in the session
             Session["cart"] = cart;
+            //mvShop.SetActiveView(vwConfirm);
+            mvShop.SetActiveView(vwConfirm);
+            lblConfirm.Text = "Item has been added to your cart";
+            
+        }
+
+        protected void ShoppingCart()
+        {
+           
         }
 
         protected void lvShop_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
@@ -75,12 +84,17 @@ namespace LuSuBu
             var dsSelectedItem = db.StoreItems.Where(n => n.Id == selectedItem).ToArray();
             lvSelectedItem.DataSource = dsSelectedItem;
             lvSelectedItem.DataBind();
+            mvShop.SetActiveView(vwProduct);
+
             
         }
 
         protected void btnBackToShop_Click(object sender, EventArgs e)
         {
-
+            mvShop.SetActiveView(vwShop);
+            lvShop.SelectedIndex = -1;
         }
+
+      
     }
 }

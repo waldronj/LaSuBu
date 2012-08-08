@@ -10,24 +10,24 @@
 namespace LuSuBu {
     
     
-    public partial class AddItemToStore {
+    public partial class AddNews {
         
         /// <summary>
-        /// dsModifyStore control.
+        /// dsAddNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource dsModifyStore;
+        protected global::System.Web.UI.WebControls.EntityDataSource dsAddNews;
         
         /// <summary>
-        /// lvModify control.
+        /// lvAddNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvModify;
+        protected global::System.Web.UI.WebControls.ListView lvAddNews;
     }
 }

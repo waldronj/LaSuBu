@@ -13,6 +13,24 @@ namespace LuSuBu {
     public partial class Shop {
         
         /// <summary>
+        /// mvShop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView mvShop;
+        
+        /// <summary>
+        /// vwShop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View vwShop;
+        
+        /// <summary>
         /// dsStore control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace LuSuBu {
         protected global::System.Web.UI.WebControls.ListView lvShop;
         
         /// <summary>
+        /// vwProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View vwProduct;
+        
+        /// <summary>
         /// btnBackToShop control.
         /// </summary>
         /// <remarks>
@@ -47,5 +74,32 @@ namespace LuSuBu {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvSelectedItem;
+        
+        /// <summary>
+        /// vwConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View vwConfirm;
+        
+        /// <summary>
+        /// lblConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirm;
+        
+        /// <summary>
+        /// A1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
     }
 }

@@ -8,18 +8,18 @@ using System.Web.UI.HtmlControls;
 
 namespace LuSuBu
 {
-    public partial class AddItemToStore : System.Web.UI.Page
+    public partial class AddNews : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //LoginView lvView = (LoginView)Master.FindControl("logview");
-            //HtmlGenericControl li = (HtmlGenericControl)lvView.FindControl("b4");
-            //li.Attributes["class"] = "selected";
+                //RoleGroupCollection rg = (RoleGroupCollection)Master.FindControl("logview");
+                //LoginView lvView = (LoginView)rg.FindControl("logview");
+                //HtmlGenericControl li = (HtmlGenericControl)lvView.FindControl("b5");
+                //li.Attributes["class"] = "selected";  
             if (!User.IsInRole("admin"))
             {
-                lvModify.Visible=false;
+                lvAddNews.Visible = false;
             }
-           
         }
 
         protected void AdminControl_PreRender(object sender, EventArgs e)

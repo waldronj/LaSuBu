@@ -76,6 +76,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\PasswordRecovery.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="AddNews.aspx" />
     <Content Include="ModifyStore.aspx" />
     <Content Include="Content\css\ie6.css" />
     <Content Include="Content\css\ie7.css" />
@@ -203,6 +204,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Shop.aspx" />
+    <Content Include="ViewCart.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +235,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddNews.aspx.cs">
+      <DependentUpon>AddNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNews.aspx.designer.cs">
+      <DependentUpon>AddNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\CartItem.cs" />
     <Compile Include="ContentManagement.cs">
@@ -290,6 +299,13 @@
     </Compile>
     <Compile Include="Transactions.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCart.aspx.cs">
+      <DependentUpon>ViewCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCart.aspx.designer.cs">
+      <DependentUpon>ViewCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

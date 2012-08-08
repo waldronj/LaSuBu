@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="LuSuBu.Shop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:MultiView ID="mvShop" runat="server" ActiveViewIndex="0">
+        <asp:View ID="vwShop" runat="server">
+
+        
     <asp:EntityDataSource ID="dsStore" runat="server" 
         ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
         EnableFlattening="False" EnableUpdate="True" 
@@ -14,8 +18,7 @@
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                 <br />
                 <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost", "{0:C}") %>'  />
-                <br />
-                
+                <br />                
                 </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
@@ -54,8 +57,7 @@
             <tr id="itemPlaceholderContainer" runat="server">
                 <td id="itemPlaceholder" runat="server"></td>
             </tr>
-        </GroupTemplate>
-      
+        </GroupTemplate>      
         <InsertItemTemplate>
             <td runat="server" style="">Id:
                 <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
@@ -82,8 +84,7 @@
                     Text="Clear" />
                 <br />
             </td>
-        </InsertItemTemplate>
-      
+        </InsertItemTemplate>      
         <ItemTemplate>
             <td runat="server" style="">
                 <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'  CommandName="Select" Width="100px" Height="100px"/>
@@ -134,7 +135,12 @@
         </SelectedItemTemplate>
     </asp:ListView>
 
-    <asp:LinkButton ID="btnBackToShop" runat="server" Text="Back To Shop" OnClick="btnBackToShop_Click" />
+        </asp:View>
+        <asp:View ID="vwProduct" runat="server">
+
+      
+
+    <p><asp:LinkButton ID="btnBackToShop" runat="server" Text="Back To Shop" OnClick="btnBackToShop_Click" /></p>
     <br />
     <br />
     <asp:ListView ID="lvSelectedItem" runat="server">
@@ -148,39 +154,54 @@
                 
             <br />
             Size:   <asp:DropDownList ID="ddlSize" runat="server">
-                        <asp:ListItem>[- Select a Size -]</asp:ListItem>
+                        <asp:ListItem Value="-1">[- Select a Size -]</asp:ListItem>
                         <asp:ListItem>S</asp:ListItem>
                         <asp:ListItem>M</asp:ListItem>
                         <asp:ListItem>L</asp:ListItem>
                         <asp:ListItem>XL</asp:ListItem>
                         <asp:ListItem>XXL</asp:ListItem>
                     </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvSize" ControlToValidate="ddlSize" runat="server" Text="Size Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
             <br />
             Quantity: <asp:DropDownList ID="ddlQty" runat="server">
-                        <asp:ListItem>[- Select a Quantity -]</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem>4</asp:ListItem>
-                        <asp:ListItem>5</asp:ListItem>
-                        <asp:ListItem>6</asp:ListItem>
-                        <asp:ListItem>7</asp:ListItem>
-                        <asp:ListItem>8</asp:ListItem>
-                        <asp:ListItem>9</asp:ListItem>
-                        <asp:ListItem>10</asp:ListItem>
-                        <asp:ListItem>11</asp:ListItem>
-                        <asp:ListItem>12</asp:ListItem>
-                        <asp:ListItem>13</asp:ListItem>
-                        <asp:ListItem>14</asp:ListItem>
-                        <asp:ListItem>15</asp:ListItem>
-                        <asp:ListItem>16</asp:ListItem>
-                        <asp:ListItem>17</asp:ListItem>
-                        <asp:ListItem>18</asp:ListItem>
-                        <asp:ListItem>19</asp:ListItem>
-                        <asp:ListItem>20</asp:ListItem>
+                       <asp:listitem Value="-1">[- select a quantity -]</asp:listitem>
+                        <asp:listitem>1</asp:listitem>
+                        <asp:listitem>2</asp:listitem>
+                        <asp:listitem>3</asp:listitem>
+                        <asp:listitem>4</asp:listitem>
+                        <asp:listitem>5</asp:listitem>
+                        <asp:listitem>6</asp:listitem>
+                        <asp:listitem>7</asp:listitem>
+                        <asp:listitem>8</asp:listitem>
+                        <asp:listitem>9</asp:listitem>
+                        <asp:listitem>10</asp:listitem>
+                        <asp:listitem>11</asp:listitem>
+                        <asp:listitem>12</asp:listitem>
+                        <asp:listitem>13</asp:listitem>
+                        <asp:listitem>14</asp:listitem>
+                        <asp:listitem>15</asp:listitem>
+                        <asp:listitem>16</asp:listitem>
+                        <asp:listitem>17</asp:listitem>
+                        <asp:listitem>18</asp:listitem>
+                        <asp:listitem>19</asp:listitem>
+                        <asp:listitem>20</asp:listitem>
                       </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvQty" ControlToValidate="ddlQty" runat="server" Text="Quantity Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
             <br />
-            <asp:LinkButton ID="btnAddToCart" Text="Add To Cart" runat="server" OnClick="btnAddToCart_Click"></asp:LinkButton>
+            <p><asp:LinkButton ID="btnAddToCart" Text="Add To Cart" runat="server" OnClick="btnAddToCart_Click"></asp:LinkButton></p>
         </ItemTemplate>
     </asp:ListView>
+              </asp:View>
+        <asp:View ID="vwConfirm" runat="server">
+            
+                
+            <asp:Label ID="lblConfirm" runat="server"></asp:Label>
+            
+                        <p><a id="A1" href="Shop.aspx" runat="server">Continue Shopping</a>
+                        <a href="ViewCart.aspx" runat="server" style="padding: 0 0 0 5em;">Checkout</a>
+            
+            
+            
+        </asp:View>
+    </asp:MultiView>
 </asp:Content>

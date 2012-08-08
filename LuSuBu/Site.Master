@@ -21,7 +21,8 @@
 					<ul class="first">											
 						<li><a id="A1" href="~/About.aspx" runat="server">About us</a></li>
 						<li><a id="A2" href="~/Shop.aspx" runat="server">Shop</a></li>
-						<li><a id="A3" href="~/Account/Login.aspx" runat="server">Login</a></li>
+						<li><asp:LoginStatus ID="lgStatus" runat="server"/></li>
+                        <li><a id="A4" href="~/ViewCart.aspx" runat="server">View Cart</a></li>
 					</ul>
 				</div>
 				</div>
@@ -32,7 +33,20 @@
 			</div>
 			<div id="navigation">
 				<ul>
-					<li class="selected"><a href="~/Default.aspx" runat="server">Home</a></li>
+					<li id="b1" runat="server"><a href="~/Default.aspx" runat="server">Home</a></li>
+                    <li id="b2" runat="server"><a href="~/About.aspx" runat="server">About us</a></li>
+                    <li id="b3" runat="server"><a href="~/Shop.aspx" runat="server">Shop</a></li>
+                    <asp:LoginView runat="server" ID="logview">
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="admin">
+                                <ContentTemplate>
+                                    <li id="b4" runat="server"><a id="A5" href="~/ModifyStore.aspx" runat="server">Manage Store</a></li>
+                                    <li id="b5" runat="server"><a id="A6" href="~/AddNews.aspx" runat="server">Add News</a></li>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                        
+                    </asp:LoginView>
 					
 				</ul>
 			</div>
@@ -42,11 +56,11 @@
 				
 			</div>
 			<div class="article">
-                	<asp:ContentPlaceHolder ID="MainContent" runat="server">
+                	
+				<div class="first">
+				<asp:ContentPlaceHolder ID="MainContent" runat="server">
 
 					</asp:ContentPlaceHolder>
-				<div class="first">
-				
 				</div>				
 
 				
