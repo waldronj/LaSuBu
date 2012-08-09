@@ -76,7 +76,8 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\PasswordRecovery.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="AddNews.aspx" />
+    <Content Include="ManageSite.aspx" />
+    <Content Include="LaSuBu.edmx.sql" />
     <Content Include="ModifyStore.aspx" />
     <Content Include="Content\css\ie6.css" />
     <Content Include="Content\css\ie7.css" />
@@ -173,7 +174,6 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
-    <Content Include="LaSuBu.edmx.sql" />
     <Content Include="packages.config" />
     <EntityDeploy Include="LaSuBu.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -236,12 +236,12 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddNews.aspx.cs">
-      <DependentUpon>AddNews.aspx</DependentUpon>
+    <Compile Include="ManageSite.aspx.cs">
+      <DependentUpon>ManageSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddNews.aspx.designer.cs">
-      <DependentUpon>AddNews.aspx</DependentUpon>
+    <Compile Include="ManageSite.aspx.designer.cs">
+      <DependentUpon>ManageSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\CartItem.cs" />
     <Compile Include="ContentManagement.cs">

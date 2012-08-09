@@ -11,19 +11,33 @@ namespace LuSuBu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ShowCart();
+        }
+
+        protected void gvCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            List<CartItem> cart = (List<CartItem>)Session["cart"];
+
+            cart.RemoveAt(e.RowIndex);
+            ShowCart();                       
+        }
+
+        protected void ShowCart()
+        {
             if (Session["cart"] != null)
             {
                 List<CartItem> cart = (List<CartItem>)Session["cart"];
-                gvCart.DataSource = from ci in cart 
-                                    select new  
-                                        {
-                                            ci.Product.Id,
-                                            ci.Product.ItemName,
-                                            ci.Product.Cost,
-                                            ci.Qty,
-                                            ci.Size,
-                                            ItemTotal = ci.Qty * ci.Product.Cost
-                                        };
+                gvCart.DataSource = from ci in cart
+                                    select new
+                                    {
+                                        ci.Product.Id,
+                                        ci.Product.ItemName,
+                                        ci.Product.Cost,
+                                        ci.Qty,
+                                        ci.Size,
+                                        ItemTotal = ci.Qty * ci.Product.Cost
+                                    };
+
                 decimal total = cart.Sum(ci => ci.Qty * ci.Product.Cost);
                 lblTotal.Text = string.Format("Total Amount: {0:c}", total);
             }
@@ -32,11 +46,6 @@ namespace LuSuBu
                 gvCart.EmptyDataText = "Your cart is Empty.";
             }
             gvCart.DataBind();
-        }
-
-        protected void gvCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-
         }
     }
 }

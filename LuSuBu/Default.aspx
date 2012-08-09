@@ -2,8 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:EntityDataSource ID="dsCMS" runat="server" 
         ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
-        EnableDelete="True" EnableFlattening="False" 
-        EnableUpdate="True" EntitySetName="ContentManagements"></asp:EntityDataSource>
+        EnableDelete="True" EnableFlattening="False" AutoGenerateWhereClause="true"
+        EnableUpdate="True" EntitySetName="ContentManagements">
+        <WhereParameters>
+            <asp:Parameter DefaultValue="Default" Type="String" Name="PageName" />
+        </WhereParameters>
+    </asp:EntityDataSource>
+
     <asp:ListView ID="lvMainPage" runat="server" DataKeyNames="Id" 
         DataSourceID="dsCMS" >
        
@@ -36,27 +41,14 @@
             <asp:Button ID="Button1" runat="server" CommandName="Edit" Text="Edit" OnPreRender="AdminControl_PreRender" />
 <br /><br /></span>
         </ItemTemplate>
-           <LayoutTemplate>
+           <%--<LayoutTemplate>
             <div style="" id="itemPlaceholderContainer" runat="server">
                 <span runat="server" id="itemPlaceholder" />
             </div>
-            <div style="">
-            </div>
-        </LayoutTemplate>
+            
+        </LayoutTemplate>--%>
         <SelectedItemTemplate>
-            <span style="">Id:
-            <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
-            <br />
-            PageName:
-            <asp:Label ID="PageNameLabel" runat="server" Text='<%# Eval("PageName") %>' />
-            <br />
-            Content:
-            <asp:Label ID="ContentLabel" runat="server" Text='<%# Eval("Content") %>' />
-            <br />
-            <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" 
-                Text="Delete" />
-<br /><br /></span>
+        
         </SelectedItemTemplate>
     </asp:ListView>
 </asp:Content>

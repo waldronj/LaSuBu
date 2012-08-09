@@ -41,7 +41,7 @@
                             <asp:RoleGroup Roles="admin">
                                 <ContentTemplate>
                                     <li id="b4" runat="server"><a id="A5" href="~/ModifyStore.aspx" runat="server">Manage Store</a></li>
-                                    <li id="b5" runat="server"><a id="A6" href="~/AddNews.aspx" runat="server">Add News</a></li>
+                                    <li id="b5" runat="server"><a id="A6" href="ManageSite.aspx" runat="server">Manage Site</a></li>
                                 </ContentTemplate>
                             </asp:RoleGroup>
                         </RoleGroups>

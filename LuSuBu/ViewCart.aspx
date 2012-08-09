@@ -3,7 +3,7 @@
     <table>
         <tr>
             <td>
-                <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" 
+   <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" 
                     DataKeyNames="Id" OnRowDeleting="gvCart_RowDeleting" Width="600px" RowStyle-HorizontalAlign="Center" HeaderStyle-ForeColor="#f6008a">
          <Columns>
             <asp:BoundField DataField="ItemName" HeaderText="Product" />

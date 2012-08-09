@@ -18,7 +18,7 @@ namespace LuSuBu
                 //li.Attributes["class"] = "selected";  
             if (!User.IsInRole("admin"))
             {
-                lvAddNews.Visible = false;
+               
             }
         }
 
@@ -29,6 +29,18 @@ namespace LuSuBu
                 //grab the control held in the sender object), cast it to a generic control so that we can hide ANY control.
                 ((Control)sender).Visible = false;
             }
+        }
+
+        protected void btnAddContent_Click(object sender, EventArgs e)
+        {
+            LaSuBuContainer db = new LaSuBuContainer();
+            db.ContentManagements.Add(new ContentManagement
+            {
+                PageName = ddlPage.SelectedValue,
+                Headline = tbHeadline.Text,
+                Content = tbContent.Text
+            }
+            );
         }
     }
 }
