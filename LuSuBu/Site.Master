@@ -1,81 +1,103 @@
 ﻿<!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>LaSuBu Designs</title>
-		<link rel="stylesheet" href="../../content/css/style.css" type="text/css" runat="server"/>
-        <link rel="shortcut icon" type="image/x-icon" href="../../content/images/favicon.ico">
-		<!--[if IE 6]>
-			<link rel="stylesheet" href="css/ie6.css" type="text/css" />
-		<![endif]-->
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="css/ie7.css" type="text/css" />
-		<![endif]-->
+		<link rel="stylesheet" href="/Content/css/bootstrap.min.css" type="text/css" runat="server"/>
+        <link rel="stylesheet" href="/Content/css/bootstrap-responsive.min.css" type="text/css" runat="server"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon.ico">
+        <script src="/Scripts/jquery.js"></script>
+        <script src="/Scripts/bootstrap.min.js"></script>
+        <script src="Scripts/less.js"></script>
 	</head>
 	<body>
         <form runat="server">
-            <div class="header">
-               <div>
-				<div class="navigation">
-					<ul class="first">											
-						<li><a id="A1" href="~/About.aspx" runat="server">About us</a></li>
-						<li><a id="A2" href="~/Shop.aspx" runat="server">Shop</a></li>
-						<li><asp:LoginStatus ID="lgStatus" runat="server"/></li>
-                        <li><a id="A4" href="~/ViewCart.aspx" runat="server">View Cart</a></li>
-					</ul>
-				</div>
-				</div>
-			</div>
-		<div class="header">
-            <div style="margin: auto">
-             <img src="~/Images/LaSuBuDesigns.png" runat="server"  />
-			</div>
-			<div id="navigation">
-				<ul>
-					<li id="b1" runat="server"><a href="~/Default.aspx" runat="server">Home</a></li>
-                    <li id="b2" runat="server"><a href="~/About.aspx" runat="server">About us</a></li>
-                    <li id="b3" runat="server"><a href="~/Shop.aspx" runat="server">Shop</a></li>
-                    <asp:LoginView runat="server" ID="logview">
-                        <RoleGroups>
-                            <asp:RoleGroup Roles="admin">
-                                <ContentTemplate>
-                                    <li id="b4" runat="server"><a id="A5" href="~/ModifyStore.aspx" runat="server">Manage Store</a></li>
-                                    <li id="b5" runat="server"><a id="A6" href="~/AddNews.aspx" runat="server">Add News</a></li>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                        </RoleGroups>
-                        
-                    </asp:LoginView>
-					
-				</ul>
-			</div>
-		</div> 
-		<div class="body">
-			<div class="featured">
-				
-			</div>
-			<div class="article">
-                	
-				<div class="first">
-				<asp:ContentPlaceHolder ID="MainContent" runat="server">
-
-					</asp:ContentPlaceHolder>
-				</div>				
-
-				
-			</div>
-            
-		</div>
-            <div style="text-align:center;">
-                <p>Follow us on Facebook</p>
-            <asp:ImageButton ID="btnFacebook" runat="server" PostBackUrl="http://facebook.com/pages/Lasubu-Designs/116285151752707" ImageUrl="~/Images/find-us-on-facebook-logo-png-i11-300x300.png" Height="75px" Width="75px" />
+            <div class="row-fluid">
+                <div class="span3 offset7">
+                    <div class="navbar affix">
+                        <div class="navbar-inner">
+					        <div class="container">
+                                <ul class="nav">											
+						            <li><a id="A1" href="~/About.aspx" runat="server">About us</a></li>
+						            <li><a id="A2" href="~/Shop.aspx" runat="server">Shop</a></li>
+						            <li><asp:LoginStatus ID="lgStatus" runat="server"/></li>
+                                    <li><a id="A4" href="~/ViewCart.aspx" runat="server">View Cart</a></li>
+                                    <li><a href="http://www.facebook.com"><img src="Content/images/facebookIcon.jpg" alt="Follow us on Facebook"/> Follow us on Facebook</a></li>
+					            </ul>
+                            </div>
+                        </div>
+			        </div>
                 </div>
-		<div class="footer">  
-            <p>
-                &#169; 2012 LaSuBu Designs. All Rights Reserved.</p>
-                <p>Template design by <a href="http://www.freewebsitetemplates.com" target="_blank">FreeWebsiteTemplates.com</a></p>
-		</div>
+            </div>
+		    
+            <div class="row-fluid">
+                <div class="span5 offset3">
+                    <img src="~/Images/LaSuBuDesigns.png" runat="server" alt="LaSuBu Designs"  />
+                </div>
+            </div>
+			 <div class="row-fluid">
+                <div class="span12">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+					        <div class="container">
+                                <ul class="nav">	
+					                <li id="b1" runat="server"><a href="~/Default.aspx" runat="server">Home</a></li>
+                                    <li id="b2" runat="server"><a href="~/About.aspx" runat="server">About us</a></li>
+                                    <li id="b3" runat="server"><a href="~/Shop.aspx" runat="server">Shop</a></li>
+                                    <asp:LoginView runat="server" ID="logview">
+                                        <RoleGroups>
+                                            <asp:RoleGroup Roles="admin">
+                                                <ContentTemplate>
+                                                    <li id="b4" runat="server"><a id="A5" href="~/ModifyStore.aspx" runat="server">Manage Store</a></li>
+                                                    <li id="b5" runat="server"><a id="A6" href="ManageSite.aspx" runat="server">Manage Site</a></li>
+                                                </ContentTemplate>
+                                            </asp:RoleGroup>
+                                        </RoleGroups>
+                                    </asp:LoginView>
+				                 </ul>
+                            </div>
+                        </div>
+			        </div>
+                </div>
+            </div>
+		
+		
+				    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+					    </asp:ContentPlaceHolder>
+<div class="row-fluid">
+    <div class="span5 offset4">
+	<p>			    Bacon ipsum dolor sit amet doner sausage pork belly, jerky flank filet mignon fatback chicken jowl. Beef ribs chuck fatback rump shank swine kielbasa. Shankle filet mignon sirloin flank tenderloin tail. Drumstick turkey doner pork bresaola, cow pastrami salami jerky pork belly ham hock filet mignon. Chuck hamburger andouille, kielbasa sausage shoulder ribeye pork prosciutto. Flank frankfurter meatball, jerky pork loin shank rump.</p>
+
+<p>Ham t-bone salami rump sausage, turkey strip steak chicken beef ribs ribeye bresaola capicola. Ribeye filet mignon shoulder, shankle tongue pastrami pork belly kielbasa. Chuck short ribs salami ham hock. Swine capicola fatback beef jowl. Pork loin shankle beef ribs, jowl t-bone pork chop rump salami venison meatloaf sirloin sausage. Fatback tri-tip bresaola pork belly beef rump.</p>
+
+<p>T-bone pork chop venison turducken bacon. Rump shoulder tenderloin meatball bresaola leberkas spare ribs, shank swine beef filet mignon fatback t-bone shankle capicola. Biltong andouille beef ribs tenderloin pastrami ball tip frankfurter. Chicken shankle ribeye strip steak tenderloin pork loin salami short loin tongue pancetta ham hock capicola meatloaf ham.</p>
+
+<p>Leberkas beef ribs short ribs tri-tip pork loin. Beef meatloaf pork ball tip tri-tip bresaola biltong sausage flank fatback ground round. Frankfurter short loin prosciutto salami jowl, filet mignon tri-tip kielbasa jerky biltong boudin tenderloin pork belly. Spare ribs venison filet mignon pig bresaola swine biltong cow prosciutto.</p>
+
+<p>T-bone flank leberkas, turducken pork loin filet mignon beef ribs turkey doner tri-tip sausage. Prosciutto beef beef ribs andouille turkey ham hock. Pancetta short ribs beef ribs pig shoulder, turducken ribeye ground round ball tip boudin sirloin. Meatball rump shank, ham hock flank jowl filet mignon pork loin chuck pancetta fatback pig shankle spare ribs. Sirloin venison pork shank strip steak cow shoulder doner ground round beef pork chop. Leberkas jerky corned beef meatloaf sausage ribeye t-bone tongue chuck. Short loin jerky biltong swine andouille pig, prosciutto tail shoulder kielbasa venison meatloaf bacon filet mignon t-bone.</p>
+
+<p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!</p>
+Paragraphs: 	
+    </div>
+    </div>
+         <div class="row-fluid">
+                <div class="span12">
+                    <div class="navbar navbar-fixed-bottom">
+                        <div class="navbar-inner">
+					        <div class="container">
+					            <div class="nav">
+                                    <ul class="nav">            
+		                                <li>&#169; 2013 LaSuBu Designs. All Rights Reserved.</li>
+                                        <li>Website Design and Hosting by: <a href="http://thejwal.com" target="_blank">The J Wal Development</a></li>
+		                            </ul>
+                                </div>
+                            </div>
+                         </div>
+			        </div>
+                </div> 
+            </div>
         </form>
 	</body>
 </html>

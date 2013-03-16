@@ -15,5 +15,14 @@ namespace LuSuBu
             HtmlGenericControl li = (HtmlGenericControl)Master.FindControl("b2");
             li.Attributes["class"] = "selected";
         }
+
+        protected void AdminControl_PreRender(object sender, EventArgs e)
+        {
+            if (!User.IsInRole("admin"))
+            {
+                //grab the control held in the sender object), cast it to a generic control so that we can hide ANY control.
+                ((Control)sender).Visible = false;
+            }
+        }
     }
 }

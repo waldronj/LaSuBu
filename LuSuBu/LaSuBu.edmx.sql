@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/03/2012 22:36:59
+-- Date Created: 08/08/2012 20:45:59
 -- Generated from EDMX file: E:\Programming\GitHub\LuSuBu\LuSuBu\LaSuBu.edmx
 -- --------------------------------------------------
 
@@ -22,6 +22,15 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[ContentManagements]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContentManagements];
+GO
+IF OBJECT_ID(N'[dbo].[Transactions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Transactions];
+GO
+IF OBJECT_ID(N'[dbo].[StoreItems]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[StoreItems];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -31,7 +40,8 @@ GO
 CREATE TABLE [dbo].[ContentManagements] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [PageName] nvarchar(max)  NOT NULL,
-    [Content] nvarchar(max)  NOT NULL
+    [Content] nvarchar(max)  NOT NULL,
+    [Headline] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -39,7 +49,7 @@ GO
 CREATE TABLE [dbo].[Transactions] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [CustomerName] nvarchar(max)  NOT NULL,
-    [Amount] decimal(18,0)  NOT NULL,
+    [Amount] decimal(38,2)  NOT NULL,
     [RefenceID] nvarchar(max)  NOT NULL,
     [Token] nvarchar(max)  NOT NULL,
     [PayerID] nvarchar(max)  NOT NULL,
@@ -51,7 +61,7 @@ GO
 CREATE TABLE [dbo].[StoreItems] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [ItemName] nvarchar(max)  NOT NULL,
-    [Cost] decimal(18,0)  NOT NULL,
+    [Cost] decimal(38,2)  NOT NULL,
     [Description] nvarchar(max)  NULL,
     [ImageURL] nvarchar(max)  NULL
 );

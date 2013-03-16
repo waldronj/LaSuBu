@@ -41,12 +41,21 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="GCheckout">
+      <HintPath>..\packages\Moolah.0.3.7\lib\net40\GCheckout.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ScriptManager.jQuery">
       <HintPath>..\packages\Microsoft.ScriptManager.jQuery.1.6.2\lib\Microsoft.ScriptManager.jQuery.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ScriptManager.jQuery.UI.Combined">
       <HintPath>..\packages\Microsoft.ScriptManager.jQuery.UI.Combined.1.8.11\lib\Microsoft.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="Moolah">
+      <HintPath>..\packages\Moolah.0.3.7\lib\net40\Moolah.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -76,80 +85,17 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\PasswordRecovery.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="AddNews.aspx" />
+    <Content Include="Checkout.aspx" />
+    <Content Include="Content\css\bootstrap-responsive.css" />
+    <Content Include="Content\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\images\facebookIcon.jpg" />
+    <Content Include="Images\paypal.jpg" />
+    <Content Include="ManageSite.aspx" />
+    <Content Include="LaSuBu.edmx.sql" />
     <Content Include="ModifyStore.aspx" />
-    <Content Include="Content\css\ie6.css" />
-    <Content Include="Content\css\ie7.css" />
-    <Content Include="Content\css\style.css" />
-    <Content Include="Content\images\accesory.jpg" />
-    <Content Include="Content\images\accessories.jpg" />
-    <Content Include="Content\images\advertisement.jpg" />
-    <Content Include="Content\images\aireen.jpg" />
-    <Content Include="Content\images\apparel.jpg" />
-    <Content Include="Content\images\apparel1.jpg" />
-    <Content Include="Content\images\apparel2.jpg" />
-    <Content Include="Content\images\apparel3.jpg" />
-    <Content Include="Content\images\apparel4.jpg" />
-    <Content Include="Content\images\apparel5.jpg" />
-    <Content Include="Content\images\apparel6.jpg" />
-    <Content Include="Content\images\apparel7.jpg" />
-    <Content Include="Content\images\apparel8.jpg" />
-    <Content Include="Content\images\aurora.jpg" />
-    <Content Include="Content\images\bath-set.jpg" />
-    <Content Include="Content\images\beach-bride.jpg" />
-    <Content Include="Content\images\beauty-box.jpg" />
-    <Content Include="Content\images\beauty-care.jpg" />
-    <Content Include="Content\images\bg-body-bottom.jpg" />
-    <Content Include="Content\images\bg-body-top.jpg" />
-    <Content Include="Content\images\bg-content.png" />
-    <Content Include="Content\images\bg-footer.png" />
-    <Content Include="Content\images\bg-menu-selected.gif" />
-    <Content Include="Content\images\bg-navigation.gif" />
-    <Content Include="Content\images\bg-top-navigation-left.png" />
-    <Content Include="Content\images\bg-top-navigation.png" />
-    <Content Include="Content\images\bg-top-navigation2.png" />
-    <Content Include="Content\images\blusher-brush.jpg" />
-    <Content Include="Content\images\border-top.gif" />
-    <Content Include="Content\images\bukasio.jpg" />
-    <Content Include="Content\images\carrot-soap.jpg" />
-    <Content Include="Content\images\charry.jpg" />
-    <Content Include="Content\images\cherry-lipstick.jpg" />
-    <Content Include="Content\images\chick-brush.jpg" />
-    <Content Include="Content\images\coin-bracelet.jpg" />
-    <Content Include="Content\images\comb-set.jpg" />
-    <Content Include="Content\images\diamond-necklace.jpg" />
-    <Content Include="Content\images\diapearl.jpg" />
-    <Content Include="Content\images\diaring.jpg" />
-    <Content Include="Content\images\divers-watch.jpg" />
-    <Content Include="Content\images\ep-sharpener.jpg" />
-    <Content Include="Content\images\essential-oils.jpg" />
-    <Content Include="Content\images\exfoliating-bath-kit.jpg" />
-    <Content Include="Content\images\eyebrow-comb.jpg" />
-    <Content Include="Content\images\fashionable.jpg" />
-    <Content Include="Content\images\favicon.ico" />
-    <Content Include="Content\images\fine-curler.jpg" />
-    <Content Include="Content\images\haruka.jpg" />
-    <Content Include="Content\images\icons.gif" />
-    <Content Include="Content\images\interface.gif" />
-    <Content Include="Content\images\jewelry.jpg" />
-    <Content Include="Content\images\kurant.jpg" />
-    <Content Include="Content\images\lipper.jpg" />
-    <Content Include="Content\images\logo.gif" />
-    <Content Include="Content\images\massage-oils.jpg" />
-    <Content Include="Content\images\miols.jpg" />
-    <Content Include="Content\images\moisture-serum.jpg" />
-    <Content Include="Content\images\motherhood-apparel.jpg" />
-    <Content Include="Content\images\organic-soap.jpg" />
-    <Content Include="Content\images\passover.jpg" />
-    <Content Include="Content\images\pearl-jewel-set.jpg" />
-    <Content Include="Content\images\sberry-lipstick.jpg" />
-    <Content Include="Content\images\separator-blog.gif" />
-    <Content Include="Content\images\separator-dotted.gif" />
-    <Content Include="Content\images\shoes.jpg" />
-    <Content Include="Content\images\silver-watch.jpg" />
-    <Content Include="Content\images\skin-perfect.jpg" />
-    <Content Include="Content\images\summer-collection.jpg" />
-    <Content Include="Content\images\veronica.jpg" />
+    <Content Include="Content\favicon.ico" />
     <Content Include="Default.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\aspNetHome.png" />
@@ -173,7 +119,6 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
-    <Content Include="LaSuBu.edmx.sql" />
     <Content Include="packages.config" />
     <EntityDeploy Include="LaSuBu.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -190,22 +135,19 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LaSuBuModel.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-1.6.2-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.2.js" />
-    <Content Include="Scripts\jquery-1.6.2.min.js">
-      <DependentUpon>jquery-1.6.2.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-ui-1.8.11.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.min.js">
-      <DependentUpon>jquery-ui-1.8.11.js</DependentUpon>
-    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\less.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Shop.aspx" />
     <Content Include="ViewCart.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -236,12 +178,19 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddNews.aspx.cs">
-      <DependentUpon>AddNews.aspx</DependentUpon>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddNews.aspx.designer.cs">
-      <DependentUpon>AddNews.aspx</DependentUpon>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSite.aspx.cs">
+      <DependentUpon>ManageSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSite.aspx.designer.cs">
+      <DependentUpon>ManageSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\CartItem.cs" />
     <Compile Include="ContentManagement.cs">

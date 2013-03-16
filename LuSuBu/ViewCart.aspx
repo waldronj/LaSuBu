@@ -3,7 +3,7 @@
     <table>
         <tr>
             <td>
-                <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" 
+   <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" 
                     DataKeyNames="Id" OnRowDeleting="gvCart_RowDeleting" Width="600px" RowStyle-HorizontalAlign="Center" HeaderStyle-ForeColor="#f6008a">
          <Columns>
             <asp:BoundField DataField="ItemName" HeaderText="Product" />
@@ -24,6 +24,8 @@
                  <asp:Label ID="lblTotal" runat="server" Font-Bold="true"></asp:Label>
         </td>
     </tr>
-    
+    <tr>
+        <td><a href="Checkout.aspx" runat="server">Checkout</a></td>
+    </tr>
     </table>
 </asp:Content>

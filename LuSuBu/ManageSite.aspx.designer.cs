@@ -13,21 +13,39 @@ namespace LuSuBu {
     public partial class AddNews {
         
         /// <summary>
-        /// dsAddNews control.
+        /// ddlPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource dsAddNews;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPage;
         
         /// <summary>
-        /// lvAddNews control.
+        /// tbHeadline control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvAddNews;
+        protected global::System.Web.UI.WebControls.TextBox tbHeadline;
+        
+        /// <summary>
+        /// tbContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbContent;
+        
+        /// <summary>
+        /// btnAddContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAddContent;
     }
 }
