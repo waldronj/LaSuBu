@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewCart.aspx.cs" Inherits="LuSuBu.ViewCart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <div class="row-fluid">
+        <div class="span6 offset3">
     <table>
         <tr>
             <td>
@@ -28,4 +30,6 @@
         <td><a href="Checkout.aspx" runat="server">Checkout</a></td>
     </tr>
     </table>
+            </div>
+         </div>
 </asp:Content>

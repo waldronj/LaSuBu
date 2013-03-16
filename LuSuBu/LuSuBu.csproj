@@ -90,6 +90,7 @@
     <Content Include="Content\css\bootstrap-responsive.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\LaSuBu.css" />
     <Content Include="Content\images\facebookIcon.jpg" />
     <Content Include="Images\paypal.jpg" />
     <Content Include="ManageSite.aspx" />

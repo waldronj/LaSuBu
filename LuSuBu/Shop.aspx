@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="LuSuBu.Shop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <div class="row-fluid">
+        <div class="span6 offset3">
     <asp:MultiView ID="mvShop" runat="server" ActiveViewIndex="0">
         <asp:View ID="vwShop" runat="server">
 
@@ -111,10 +113,10 @@
                 </tr>
                 <tr runat="server">
                     <td runat="server" >
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12" >
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
-                                    ShowLastPageButton="True" />
+                                    ShowLastPageButton="True" ButtonCssClass="btn btn-primary" />
                             </Fields>
                         </asp:DataPager>
                     </td>
@@ -207,4 +209,6 @@
             
         </asp:View>
     </asp:MultiView>
+            </div>
+         </div>
 </asp:Content>

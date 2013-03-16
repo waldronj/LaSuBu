@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="LuSuBu.About" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:EntityDataSource ID="dsCMS" runat="server" 
+    <div class="row-fluid">
+        <div class="span6 offset3">
+     <asp:EntityDataSource ID="dsCMS" runat="server" 
         ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" AutoGenerateWhereClause="true"
         EnableFlattening="False" EnableUpdate="True" EntitySetName="ContentManagements">
         <WhereParameters>
@@ -37,4 +39,6 @@
         </ItemTemplate>
        
     </asp:ListView>
+            </div>
+        </div>
 </asp:Content>
