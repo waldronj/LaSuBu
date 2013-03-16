@@ -17,7 +17,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PageName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Headline" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Transactions">
     <Key>
@@ -25,7 +24,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Amount" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Amount" Type="decimal" Nullable="false" />
     <Property Name="RefenceID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Token" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PayerID" Type="nvarchar(max)" Nullable="false" />
@@ -37,7 +36,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Cost" Type="decimal" Nullable="false" Precision="38" />
+    <Property Name="Cost" Type="decimal" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ImageURL" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
@@ -57,7 +56,6 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="PageName" Nullable="false" />
           <Property Type="String" Name="Content" Nullable="false" />
-          <Property Type="String" Name="Headline" Nullable="false" />
         </EntityType>
         <EntityType Name="Transactions">
           <Key>
@@ -77,7 +75,7 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="ItemName" Nullable="false" />
-          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="38" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="2" />
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="String" Name="ImageURL" Nullable="true" />
         </EntityType>
@@ -93,7 +91,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PageName" ColumnName="PageName" />
           <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="Headline" ColumnName="Headline" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

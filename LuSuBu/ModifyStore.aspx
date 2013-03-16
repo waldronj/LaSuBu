@@ -64,7 +64,7 @@
                     <asp:TextBox ID="DescriptionTextBox" runat="server" 
                         Text='<%# Bind("Description") %>' />
                 </td>
-                <td style="text-align:left">
+                <td>
                     <asp:TextBox ID="ImageURLTextBox" runat="server" 
                         Text='<%# Bind("ImageURL") %>' />
                 </td>
@@ -88,8 +88,8 @@
                     <asp:Label ID="DescriptionLabel" runat="server" 
                         Text='<%# Eval("Description") %>' />
                 </td>
-                <td style="text-align:left">
-                    <asp:Label ID="ImageURLLabel" runat="server" Text='<%# Eval("ImageURL") %>'  />
+                <td>
+                    <asp:Label ID="ImageURLLabel" runat="server" Text='<%# Eval("ImageURL") %>' />
                 </td>
             </tr>
         </ItemTemplate>
@@ -104,7 +104,7 @@
                                 <th runat="server">ItemName</th>
                                 <th runat="server">Cost</th>
                                 <th runat="server">Description</th>
-                                <th runat="server"  style="text-align:left">ImageURL</th>
+                                <th runat="server">ImageURL</th>
                             </tr>
                             <tr id="itemPlaceholder" runat="server">
                             </tr>

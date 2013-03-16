@@ -8,10 +8,7 @@
         ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
         EnableFlattening="False" EnableUpdate="True" 
         EntitySetName="StoreItems"></asp:EntityDataSource>
-    
-            
-            
-            <asp:ListView ID="lvShop" runat="server" DataKeyNames="Id" 
+    <asp:ListView ID="lvShop" runat="server" DataKeyNames="Id" 
         DataSourceID="dsStore" GroupItemCount="5" 
         OnSelectedIndexChanging="lvShop_SelectedIndexChanging">
         <AlternatingItemTemplate>
