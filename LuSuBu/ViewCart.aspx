@@ -2,11 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="row-fluid">
         <div class="span6 offset3">
-    <table>
-        <tr>
-            <td>
-   <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" 
-                    DataKeyNames="Id" OnRowDeleting="gvCart_RowDeleting" Width="600px" RowStyle-HorizontalAlign="Center" HeaderStyle-ForeColor="#f6008a">
+    
+   <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" OnRowDeleting="gvCart_RowDeleting" CssClass="table" GridLines="None" >
          <Columns>
             <asp:BoundField DataField="ItemName" HeaderText="Product" />
             <asp:BoundField DataField="Cost" HeaderText="Cost Per Item" />
@@ -16,20 +13,21 @@
                  HeaderText="Item Total" >
              <ItemStyle HorizontalAlign="Center" />
              </asp:BoundField>
-            <asp:ButtonField CommandName="Delete" CausesValidation="false" ButtonType="Link" Text="Remove from Cart" />
+            <asp:ButtonField CommandName="Delete" CausesValidation="false" ButtonType="Button" Text="Remove from Cart" />
         </Columns>
     </asp:GridView>
-            </td>
-        </tr>
-    <tr>
-        <td>
-                 <asp:Label ID="lblTotal" runat="server" Font-Bold="true"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td><a href="Checkout.aspx" runat="server">Checkout</a></td>
-    </tr>
-    </table>
+        <div>
+            <asp:Label ID="lblTotal" runat="server" Font-Bold="true"></asp:Label>
+        </div> 
+        <div>
+            <a href="Checkout.aspx" runat="server">Checkout</a>
+        </div> 
             </div>
-         </div>
+        </div>
+    <script type="text/javascript">
+        $("#MainContent_gvCart").removeAttr("style");
+        $("#MainContent_gvCart").addClass("table");
+        $(":button").addClass("btn btn-inverse");
+        
+    </script>
 </asp:Content>

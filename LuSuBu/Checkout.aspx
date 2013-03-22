@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="LuSuBu.Checkout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <table>
+      <div class="row-fluid">
+        <div class="span4 offset3">
+    <table class="table">
         <tr>
             <td>
-                Name:
+                <h4>Name:</h4>
             </td>
             <td>
                 <asp:TextBox ID="tbName" runat="server" />
@@ -11,7 +13,7 @@
         </tr>
         <tr>
             <td>
-                Phone:
+                <h4>Phone:</h4>
             </td>
             <td>
                 <asp:TextBox ID="tbPhoneNumber" runat="server" />
@@ -19,7 +21,7 @@
         </tr>
         <tr>
             <td>
-                Address:
+                <h4>Address:</h4>
             </td>
             <td>
                 <asp:TextBox ID="tbAddress" runat="server" />
@@ -27,7 +29,7 @@
         </tr>
         <tr>
             <td>
-                City:
+                <h4>City:</h4>
             </td>
             <td>
                 <asp:TextBox ID="tbCity" runat="server" />
@@ -35,7 +37,7 @@
         </tr>
         <tr>
             <td>
-                Zip:
+                <h4>Zip:</h4>
             </td>
             <td>
                 <asp:TextBox ID="tbZip" runat="server" />
@@ -43,7 +45,7 @@
         </tr>
         <tr>
             <td>
-                State:
+                <h4>State:</h4>
             </td>
             <td>
                 <asp:DropDownList ID="ddlState" runat="server"  >
@@ -105,4 +107,6 @@
         <td><asp:ImageButton ID="btnCheckout" runat="server" ImageUrl="~/Images/paypal.jpg" /></td>
     </tr>
     </table>
+</div>
+          </div>
 </asp:Content>

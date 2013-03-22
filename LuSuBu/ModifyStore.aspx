@@ -1,26 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifyStore.aspx.cs" Inherits="LuSuBu.AddItemToStore" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row-fluid">
-        <div class="span11 offset1">
+        <div class="span12">
     
             <asp:EntityDataSource ID="dsModifyStore" runat="server" 
                 ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
-                EnableFlattening="False" EnableInsert="True" EnableUpdate="True" 
+                EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EnableDelete="True"
                 EntitySetName="StoreItems"></asp:EntityDataSource>
             <asp:ListView ID="lvModify" runat="server" DataKeyNames="Id" 
                 DataSourceID="dsModifyStore" InsertItemPosition="LastItem">
         
                 <EditItemTemplate>
-                    <tr style="">
+                    <tr>
                         <td>
                             <asp:Button ID="UpdateButton" runat="server" CommandName="Update" OnPreRender="AdminControl_PreRender"
                                 Text="Update" CssClass="btn btn-primary"/>
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
                                 Text="Cancel" CssClass="btn btn-danger"/>
                         </td>
-                        <td>
-                            <asp:Label ID="IdLabel1" runat="server" Text='<%# Eval("Id") %>' />
-                        </td>
+                        
                         <td>
                             <asp:TextBox ID="ItemNameTextBox" runat="server" 
                                 Text='<%# Bind("ItemName") %>' />
@@ -46,16 +44,14 @@
                     </table>
                 </EmptyDataTemplate>
                 <InsertItemTemplate>
-                    <tr style="">
+                    <tr>
                         <td>
                             <asp:Button ID="InsertButton" runat="server" CommandName="Insert" OnPreRender="AdminControl_PreRender"
                                 Text="Insert" CssClass="btn btn-primary"/>
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
                                 Text="Clear" CssClass="btn btn-danger"/>
                         </td>
-                        <td>
-                   
-                        </td>
+                       
                         <td>
                             <asp:TextBox ID="ItemNameTextBox" runat="server" 
                                 Text='<%# Bind("ItemName") %>' />
@@ -74,18 +70,16 @@
                     </tr>
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <tr style="">
+                    <tr>
                         <td>
                             <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" OnPreRender="AdminControl_PreRender" CssClass="btn btn-primary"/>
+                            | <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" OnPreRender="AdminControl_PreRender" CssClass="btn btn-inverse"/>
+                        </td>
+                        <td style="padding-left:1em">
+                             <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost") %>' />
+                            <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost") %>'  />
                         </td>
                         <td>
                             <asp:Label ID="DescriptionLabel" runat="server" 
@@ -103,7 +97,6 @@
                                 <table id="itemPlaceholderContainer" runat="server" border="0" style="">
                                     <tr runat="server" style="">
                                         <th runat="server"></th>
-                                        <th runat="server">Id</th>
                                         <th runat="server">ItemName</th>
                                         <th runat="server">Cost</th>
                                         <th runat="server">Description</th>
