@@ -9,6 +9,16 @@
     <EntitySet Name="ContentManagements" EntityType="LaSuBu.Store.ContentManagements" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Transactions" EntityType="LaSuBu.Store.Transactions" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="StoreItems" EntityType="LaSuBu.Store.StoreItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Items1" EntityType="LaSuBu.Store.Items1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders1" EntityType="LaSuBu.Store.Orders1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="OrderItem" Association="LaSuBu.Store.OrderItem">
+      <End Role="Order" EntitySet="Orders1" />
+      <End Role="Item" EntitySet="Items1" />
+    </AssociationSet>
+    <AssociationSet Name="TransactionsOrders" Association="LaSuBu.Store.TransactionsOrders">
+      <End Role="Transactions" EntitySet="Transactions" />
+      <End Role="Orders" EntitySet="Orders1" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="ContentManagements">
     <Key>
@@ -30,6 +40,12 @@
     <Property Name="Token" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PayerID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Zip" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="StoreItems">
     <Key>
@@ -41,6 +57,47 @@
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ImageURL" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
+  <EntityType Name="Items1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionsId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="OrderItem">
+    <End Role="Order" Type="LaSuBu.Store.Orders1" Multiplicity="1" />
+    <End Role="Item" Type="LaSuBu.Store.Items1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TransactionsOrders">
+    <End Role="Transactions" Type="LaSuBu.Store.Transactions" Multiplicity="1" />
+    <End Role="Orders" Type="LaSuBu.Store.Orders1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transactions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="TransactionsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -168,6 +225,12 @@
           <ScalarProperty Name="Token" ColumnName="Token" />
           <ScalarProperty Name="PayerID" ColumnName="PayerID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -179,6 +242,25 @@
           <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items1">
+      <EntityTypeMapping TypeName="IsTypeOf(LaSuBu.Items)">
+        <MappingFragment StoreEntitySet="Items1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders1">
+      <EntityTypeMapping TypeName="IsTypeOf(LaSuBu.Orders)">
+        <MappingFragment StoreEntitySet="Orders1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionsId" ColumnName="TransactionsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

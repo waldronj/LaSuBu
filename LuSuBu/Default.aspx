@@ -42,7 +42,7 @@
             <asp:Label ID="Label2" runat="server" Text='<%# Eval("Content") %>' />
             <br />
             <asp:Button ID="Button1" runat="server" CommandName="Edit" Text="Edit" OnPreRender="AdminControl_PreRender" CssClass="btn btn-primary" />
-<br /><br /></span>
+<br /><br /><asp:Button ID="Button2" runat="server" CommandName="Delete" Text="Delete" OnPreRender="AdminControl_PreRender" CssClass="btn btn-inverse" /></span>
         </ItemTemplate>
            <%--<LayoutTemplate>
             <div style="" id="itemPlaceholderContainer" runat="server">

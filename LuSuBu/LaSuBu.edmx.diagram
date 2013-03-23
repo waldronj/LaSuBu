@@ -7,7 +7,7 @@
       <Diagram DiagramId="44303799f8314490a364cb9065da16e1" Name="Diagram1" >
         <EntityTypeShape EntityType="LaSuBu.ContentManagement" Width="1.5" PointX="1.375" PointY="0.5" />
         <EntityTypeShape EntityType="LaSuBu.Transactions" Width="1.5" PointX="6.25" PointY="3.25" />
-        <EntityTypeShape EntityType="LaSuBu.StoreItems" Width="1.5" PointX="6.5" PointY="0.5" />
+        <EntityTypeShape EntityType="LaSuBu.StoreItems" Width="1.5" PointX="3.25" PointY="0.5" />
         <EntityTypeShape EntityType="LaSuBu.Items" Width="1.5" PointX="1.125" PointY="3.5" />
         <EntityTypeShape EntityType="LaSuBu.Orders" Width="1.5" PointX="3.25" PointY="3.5" />
         <AssociationConnector Association="LaSuBu.OrderItem" />

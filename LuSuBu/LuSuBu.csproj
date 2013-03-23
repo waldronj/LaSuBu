@@ -115,8 +115,11 @@
     <Content Include="Images\paypal.jpg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
+    <Content Include="LaSuBu.edmx.sql">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ManageSite.aspx" />
-    <Content Include="LaSuBu.edmx.sql" />
+    <Content Include="LaSuBu2.edmx.sql" />
     <Content Include="ModifyStore.aspx" />
     <Content Include="Content\favicon.ico" />
     <Content Include="Default.aspx" />
