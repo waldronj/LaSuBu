@@ -12,18 +12,12 @@ using System.Collections.Generic;
 
 namespace LuSuBu
 {
-    public partial class Orders
+    public partial class TransactionStatu
     {
-        public Orders()
-        {
-            this.Items = new HashSet<Items>();
-        }
+        public int id { get; set; }
+        public string Description { get; set; }
     
-        public int Id { get; set; }
-        public int TransactionsId { get; set; }
-    
-        public virtual ICollection<Items> Items { get; set; }
-        public virtual Transactions Transaction { get; set; }
+        public virtual Transaction Transaction { get; set; }
     }
     
 }

@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace LuSuBu
 {
-    public partial class Items
+    public partial class Items1
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,7 +20,7 @@ namespace LuSuBu
         public string Price { get; set; }
         public int OrderId { get; set; }
     
-        public virtual Orders Order { get; set; }
+        public virtual Orders1 Orders1 { get; set; }
     }
     
 }
