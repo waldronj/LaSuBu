@@ -79,7 +79,7 @@
                              <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost") %>'  />
+                            <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost", "{0:C}") %>'  />
                         </td>
                         <td>
                             <asp:Label ID="DescriptionLabel" runat="server" 
@@ -94,7 +94,7 @@
                     <table runat="server">
                         <tr runat="server">
                             <td runat="server">
-                                <table id="itemPlaceholderContainer" runat="server" border="0" style="">
+                                <table id="itemPlaceholderContainer" runat="server" class="table table-hover">
                                     <tr runat="server" style="">
                                         <th runat="server"></th>
                                         <th runat="server">ItemName</th>

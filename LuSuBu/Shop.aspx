@@ -27,8 +27,7 @@
                 </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <td runat="server" style="">Id:
-                <asp:Label ID="IdLabel1" runat="server" Text='<%# Eval("Id") %>' />
+            <td runat="server" style="">
                 <br />ItemName:
                 <asp:TextBox ID="ItemNameTextBox" runat="server" 
                     Text='<%# Bind("ItemName") %>' />
@@ -91,21 +90,21 @@
             </td>
         </InsertItemTemplate>      
         <ItemTemplate>
-            <td runat="server" style="">
+            <td runat="server">
                 <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'  CommandName="Select" Width="100px" Height="100px" CssClass="img-rounded"/>
                 <br />
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                 <br />
                 <asp:Label ID="CostLabel" runat="server" Text='<%# Eval("Cost", "{0:C}") %>'  />                
                 <br />
-                
                 </td>
+
         </ItemTemplate>
         <LayoutTemplate>
             <table runat="server">
                 <tr runat="server">
                     <td runat="server">
-                        <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" class="table">
                             <tr id="groupPlaceholder" runat="server">
                             </tr>
                         </table>
@@ -145,7 +144,7 @@
 
       
 
-    <p><asp:LinkButton ID="btnBackToShop" runat="server" Text="Back To Shop" OnClick="btnBackToShop_Click" /></p>
+    <p><asp:LinkButton ID="btnBackToShop" runat="server" Text="Back To Shop" OnClick="btnBackToShop_Click" CausesValidation="False" /></p>
     <br />
     <br />
     <asp:ListView ID="lvSelectedItem" runat="server">
