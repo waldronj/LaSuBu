@@ -9,7 +9,7 @@ using LuSuBu;
 /// </summary>
 public class CartItem
 {
-	public CartItem(StoreItems product, int qty, string size)
+	public CartItem(StoreItem product, int qty, string size)
 	{
         Product = product;
         Qty = qty;
@@ -19,7 +19,7 @@ public class CartItem
 		//
 	}
 
-    public StoreItems Product
+    public StoreItem Product
     {
         get;
         set;

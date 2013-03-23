@@ -92,35 +92,16 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\LaSuBu.css" />
     <Content Include="Content\images\facebookIcon.jpg" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\aspNetHome.png" />
     <Content Include="Content\images\bg-body.jpg" />
-    <Content Include="Images\bullet.png" />
     <Content Include="Images\facebook-logo.jpg" />
     <Content Include="Images\facebook.png" />
-    <Content Include="Images\find-us-on-facebook-logo-png-i11-300x300.png" />
-    <Content Include="Images\findHosting.png" />
-    <Content Include="Images\heroAccent.png" />
     <Content Include="Images\LaSuBuDesigns.png" />
-    <Content Include="Images\NuGetGallery.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Images\paypal.jpg" />
     <Content Include="Images\twitter.png" />
-    <Content Include="Images\windowsLive.png" />
     <Content Include="LaSuBu.edmx.sql">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ManageSite.aspx" />
-    <Content Include="LaSuBu2.edmx.sql" />
     <Content Include="ModifyStore.aspx" />
     <Content Include="Content\favicon.ico" />
     <Content Include="Default.aspx" />
@@ -140,7 +121,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LaSuBuModel.cs</LastGenOutput>
     </Content>
-    <Content Include="README.txt" />
     <Content Include="Scripts\Backstretch.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -192,7 +172,7 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Items.cs">
+    <Compile Include="Items1.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ManageSite.aspx.cs">
@@ -238,7 +218,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LaSuBu.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs">
+    <Compile Include="Orders1.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -256,10 +236,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="StoreItems.cs">
+    <Compile Include="StoreItem.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Transactions.cs">
+    <Compile Include="Transaction.cs">
+      <DependentUpon>LaSuBuModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionStatu.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewCart.aspx.cs">

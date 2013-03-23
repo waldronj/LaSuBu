@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>LaSuBu Designs</title>
+		<link rel="stylesheet" href="/Content/css/bootstrap.css" type="text/css" runat="server"/>
+        <link rel="stylesheet" href="/Content/css/bootstrap-responsive.min.css" type="text/css" runat="server"/>
+        <link rel="stylesheet" href="Content/css/LaSuBu.css" type="text/css" runat="server"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon.ico">
+        <script src="/Scripts/jquery.js"></script>
+        <script src="/Scripts/bootstrap.min.js"></script>
+        <script src="/Scripts/less.js"></script>
+        <script src="/Scripts/Backstretch.js"></script>
+	</head>
+	<body>
+	    <script type="text/javascript">
+	        $.backstretch("/Content/Images/bg-body.jpg")
+    	</script>
+         <script type="text/javascript">
+             $.backstretch("/Content/Images/bg-body.jpg")
+    	</script>
+        <form runat="server">
+            <div class="row-fluid">
+                <div class="span5 offset3 banner">
+                    <img src="~/Images/LaSuBuDesigns.png" runat="server" alt="LaSuBu Designs"  />
+                </div>
+            </div>
+			 <div class="row-fluid">
+                <div class="span12">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+					        <div class="container">
+                                <ul class="nav">	
+					                <li id="b1" runat="server"><a href="/" runat="server">Home</a></li>
+                                    <li id="b2" runat="server"><a href="~/Home/About" runat="server">About us</a></li>
+                                    <li id="b3" runat="server"><a href="/Shop" runat="server">Shop</a></li>
+                                    @if(User.IsInRole("admin")){
+                                                    <li id="b4" runat="server"><a id="A5" href="" runat="server">Manage Store</a></li>
+                                                    <li id="b5" runat="server"><a id="A6" href="#" runat="server">Manage Site</a></li>
+                                          }
+				                 </ul>
+                            </div>
+                        </div>
+			        </div>
+                </div>
+            </div>
+				    @RenderBody()
+         <div class="row-fluid">
+                <div class="span12">
+                    <div class="navbar navbar-fixed-bottom">
+                        <div class="navbar-inner">
+					        <div class="container">
+					            <div class="nav">
+                                    <ul class="nav">            
+                                        <li><a href="/">&#169; 2013 LaSuBu Designs</a></li>
+                                        <li><a href="http://www.facebook.com"><img src="/Content/images/facebookIcon.jpg" alt="Follow us on Facebook"/> Follow us on Facebook</a></li>
+                                        <li><a href="http://thejwal.com" target="_blank">Website Created by The J Wal Development llc</a></li>
+		                            </ul>
+                                </div>
+                            </div>
+                         </div>
+			        </div>
+                </div> 
+            </div>
+        </form>
+	</body>
+</html>

@@ -23,7 +23,7 @@ namespace LuSuBu
            
             LaSuBuContainer db = new LaSuBuContainer();
             //1) the product to be added
-            StoreItems theproduct = (from p in db.StoreItems
+            StoreItem theproduct = (from p in db.StoreItems
                                      where p.Id == (int)lvShop.SelectedValue
                                      select p).Single();
 
