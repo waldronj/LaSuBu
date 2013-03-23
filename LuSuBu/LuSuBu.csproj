@@ -172,9 +172,6 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Items1.cs">
-      <DependentUpon>LaSuBuModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ManageSite.aspx.cs">
       <DependentUpon>ManageSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,9 +215,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LaSuBu.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Orders1.cs">
-      <DependentUpon>LaSuBuModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
@@ -242,7 +236,10 @@
     <Compile Include="Transaction.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransactionStatu.cs">
+    <Compile Include="TransItems.cs">
+      <DependentUpon>LaSuBuModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransStatus.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewCart.aspx.cs">

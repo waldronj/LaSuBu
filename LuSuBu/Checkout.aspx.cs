@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Moolah;
+using System.Data.Entity;
 
 namespace LuSuBu
 {
@@ -18,14 +19,30 @@ namespace LuSuBu
         public void Make_Payment(object sender, EventArgs e)
         {
             CustomerInfo ci = new CustomerInfo{Address = tbName.Text, Phone = tbPhoneNumber.Text, City = tbCity.Text, Name = tbName.Text, State = ddlState.SelectedValue, Zip = tbZip.Text};
-            StoreCustomerInfo(ci);
+            //
             GeneratePayPalToken();
+            StoreCustomerInfo(ci);
+            
         }
 
 
         public void StoreCustomerInfo(CustomerInfo ci)
         {
+            var db = new LaSuBuContainer();
+            Transaction currentTrans = new Transaction
+                {
+                    Address = ci.Address,
+                    Amount = decimal.Parse((Session["totalAmount"].ToString())),
+                    City = ci.City,
+                    CustomerName = ci.Name,
+                    Date = DateTime.Now,
+                    Email = ci.Email,
+                    Phone = ci.Phone,
+                    Zip = ci.Zip
+                };
             
+            db.Transactions.Add(currentTrans);
+            db.SaveChanges();
         }
 
         public void GeneratePayPalToken()

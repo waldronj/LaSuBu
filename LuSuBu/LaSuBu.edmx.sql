@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/23/2013 16:23:18
+-- Date Created: 03/23/2013 18:09:16
 -- Generated from EDMX file: H:\Programming\GitHub\LaSuBu\LuSuBu\LaSuBu.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,8 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_OrderItem]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Items1] DROP CONSTRAINT [FK_OrderItem];
-GO
-IF OBJECT_ID(N'[dbo].[FK_TransactionsOrders]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Orders1] DROP CONSTRAINT [FK_TransactionsOrders];
+IF OBJECT_ID(N'[dbo].[FK_TransactionTransactionStatu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Transactions] DROP CONSTRAINT [FK_TransactionTransactionStatu];
 GO
 
 -- --------------------------------------------------
@@ -34,17 +31,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Items1]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Items1];
 GO
-IF OBJECT_ID(N'[dbo].[Orders1]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Orders1];
-GO
 IF OBJECT_ID(N'[dbo].[StoreItems]', 'U') IS NOT NULL
     DROP TABLE [dbo].[StoreItems];
 GO
 IF OBJECT_ID(N'[dbo].[Transactions]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Transactions];
 GO
-IF OBJECT_ID(N'[LaSuBuStoreContainer].[TransactionStatus]', 'U') IS NOT NULL
-    DROP TABLE [LaSuBuStoreContainer].[TransactionStatus];
+IF OBJECT_ID(N'[dbo].[TransactionStatus]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TransactionStatus];
 GO
 
 -- --------------------------------------------------
@@ -60,20 +54,14 @@ CREATE TABLE [dbo].[ContentManagements] (
 );
 GO
 
--- Creating table 'Items1'
-CREATE TABLE [dbo].[Items1] (
+-- Creating table 'TransItems'
+CREATE TABLE [dbo].[TransItems] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Size] nvarchar(max)  NOT NULL,
     [Price] nvarchar(max)  NOT NULL,
-    [OrderId] int  NOT NULL
-);
-GO
-
--- Creating table 'Orders1'
-CREATE TABLE [dbo].[Orders1] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [TransactionsId] int  NOT NULL
+    [OrderId] int  NOT NULL,
+    [TransactionId] int  NOT NULL
 );
 GO
 
@@ -96,21 +84,20 @@ CREATE TABLE [dbo].[Transactions] (
     [Token] nvarchar(max)  NOT NULL,
     [PayerID] nvarchar(max)  NOT NULL,
     [Date] datetime  NOT NULL,
-    [Phone] nvarchar(max)  NULL,
-    [Address] nvarchar(max)  NULL,
-    [City] nvarchar(max)  NULL,
-    [Zip] nvarchar(max)  NULL,
-    [State] nvarchar(max)  NULL,
-    [Email] nvarchar(max)  NULL,
-    [TransactionStatu_id] int  NOT NULL,
-    [TransactionStatu_Description] nvarchar(50)  NOT NULL
+    [Phone] nvarchar(20)  NULL,
+    [Address] nvarchar(150)  NULL,
+    [City] nvarchar(150)  NULL,
+    [Zip] nvarchar(20)  NULL,
+    [State] nvarchar(100)  NULL,
+    [Email] nvarchar(250)  NULL
 );
 GO
 
--- Creating table 'TransactionStatus'
-CREATE TABLE [dbo].[TransactionStatus] (
+-- Creating table 'TransStatus'
+CREATE TABLE [dbo].[TransStatus] (
     [id] int IDENTITY(1,1) NOT NULL,
-    [Description] nvarchar(50)  NOT NULL
+    [Description] nvarchar(50)  NOT NULL,
+    [Transaction_Id] int  NOT NULL
 );
 GO
 
@@ -124,15 +111,9 @@ ADD CONSTRAINT [PK_ContentManagements]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Items1'
-ALTER TABLE [dbo].[Items1]
-ADD CONSTRAINT [PK_Items1]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'Orders1'
-ALTER TABLE [dbo].[Orders1]
-ADD CONSTRAINT [PK_Orders1]
+-- Creating primary key on [Id] in table 'TransItems'
+ALTER TABLE [dbo].[TransItems]
+ADD CONSTRAINT [PK_TransItems]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -148,9 +129,9 @@ ADD CONSTRAINT [PK_Transactions]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id], [Description] in table 'TransactionStatus'
-ALTER TABLE [dbo].[TransactionStatus]
-ADD CONSTRAINT [PK_TransactionStatus]
+-- Creating primary key on [id], [Description] in table 'TransStatus'
+ALTER TABLE [dbo].[TransStatus]
+ADD CONSTRAINT [PK_TransStatus]
     PRIMARY KEY CLUSTERED ([id], [Description] ASC);
 GO
 
@@ -158,46 +139,32 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [OrderId] in table 'Items1'
-ALTER TABLE [dbo].[Items1]
-ADD CONSTRAINT [FK_OrderItem]
-    FOREIGN KEY ([OrderId])
-    REFERENCES [dbo].[Orders1]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_OrderItem'
-CREATE INDEX [IX_FK_OrderItem]
-ON [dbo].[Items1]
-    ([OrderId]);
-GO
-
--- Creating foreign key on [TransactionsId] in table 'Orders1'
-ALTER TABLE [dbo].[Orders1]
-ADD CONSTRAINT [FK_TransactionsOrders]
-    FOREIGN KEY ([TransactionsId])
+-- Creating foreign key on [Transaction_Id] in table 'TransStatus'
+ALTER TABLE [dbo].[TransStatus]
+ADD CONSTRAINT [FK_TransStatusTransaction]
+    FOREIGN KEY ([Transaction_Id])
     REFERENCES [dbo].[Transactions]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TransactionsOrders'
-CREATE INDEX [IX_FK_TransactionsOrders]
-ON [dbo].[Orders1]
-    ([TransactionsId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_TransStatusTransaction'
+CREATE INDEX [IX_FK_TransStatusTransaction]
+ON [dbo].[TransStatus]
+    ([Transaction_Id]);
 GO
 
--- Creating foreign key on [TransactionStatu_id], [TransactionStatu_Description] in table 'Transactions'
-ALTER TABLE [dbo].[Transactions]
-ADD CONSTRAINT [FK_TransactionTransactionStatu]
-    FOREIGN KEY ([TransactionStatu_id], [TransactionStatu_Description])
-    REFERENCES [dbo].[TransactionStatus]
-        ([id], [Description])
+-- Creating foreign key on [TransactionId] in table 'TransItems'
+ALTER TABLE [dbo].[TransItems]
+ADD CONSTRAINT [FK_TransactionTransItems]
+    FOREIGN KEY ([TransactionId])
+    REFERENCES [dbo].[Transactions]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TransactionTransactionStatu'
-CREATE INDEX [IX_FK_TransactionTransactionStatu]
-ON [dbo].[Transactions]
-    ([TransactionStatu_id], [TransactionStatu_Description]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_TransactionTransItems'
+CREATE INDEX [IX_FK_TransactionTransItems]
+ON [dbo].[TransItems]
+    ([TransactionId]);
 GO
 
 -- --------------------------------------------------

@@ -40,6 +40,7 @@ namespace LuSuBu
 
                 decimal total = cart.Sum(ci => ci.Qty * ci.Product.Cost);
                 lblTotal.Text = string.Format("Total Amount: {0:c}", total);
+                Session["totalAmount"] = total;
             }
             else
             {
