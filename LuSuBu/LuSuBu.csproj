@@ -140,6 +140,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LaSuBuModel.cs</LastGenOutput>
     </Content>
+    <Content Include="README.txt" />
     <Content Include="Scripts\Backstretch.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
