@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LuSuBu.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row-fluid">
-        <div class="span6 offset3">
+        <div class="span6 offset3 content">
 
     <asp:EntityDataSource ID="dsCMS" runat="server" 
         ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 

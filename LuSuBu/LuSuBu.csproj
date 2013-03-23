@@ -94,6 +94,7 @@
     <Content Include="Content\images\facebookIcon.jpg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\aspNetHome.png" />
+    <Content Include="Content\images\bg-body.jpg" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\facebook-logo.jpg" />
     <Content Include="Images\facebook.png" />
@@ -139,6 +140,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LaSuBuModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\Backstretch.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.js" />

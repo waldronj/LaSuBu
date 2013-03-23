@@ -10,9 +10,13 @@
         <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon.ico">
         <script src="/Scripts/jquery.js"></script>
         <script src="/Scripts/bootstrap.min.js"></script>
-        <script src="Scripts/less.js"></script>
+        <script src="/Scripts/less.js"></script>
+        <script src="/Scripts/Backstretch.js"></script>
 	</head>
 	<body>
+	    <script type="text/javascript">
+	        $.backstretch("/Content/Images/bg-body.jpg")
+    	</script>
         <form runat="server">
             <div class="row-fluid">
                 <div class="span5 offset3 banner">

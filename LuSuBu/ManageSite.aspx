@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageSite.aspx.cs" Inherits="LuSuBu.AddNews" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row-fluid">
-        <div class="span11 offset1">
+        <div class="span5 offset2 content">
             <strong>Page:</strong> <br />  
             <asp:DropDownList ID="ddlPage" runat="server">
                 <asp:ListItem Value="AboutUs">About Us</asp:ListItem>

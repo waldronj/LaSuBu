@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="LuSuBu.Shop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="row-fluid">
-        <div class="span6 offset3">
+        <div class="span6 offset3 content">
     <asp:MultiView ID="mvShop" runat="server" ActiveViewIndex="0">
         <asp:View ID="vwShop" runat="server">
 

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewCart.aspx.cs" Inherits="LuSuBu.ViewCart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="row-fluid">
-        <div class="span6 offset3">
+        <div class="span6 offset3 content">
     
    <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" OnRowDeleting="gvCart_RowDeleting" CssClass="table" GridLines="None" >
          <Columns>

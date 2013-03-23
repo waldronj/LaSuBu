@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="LuSuBu.Checkout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       <div class="row-fluid">
-        <div class="span4 offset3">
+        <div class="span4 offset3 content">
     <table class="table">
         <tr>
             <td>

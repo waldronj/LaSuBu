@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifyStore.aspx.cs" Inherits="LuSuBu.AddItemToStore" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span12 content">
     
             <asp:EntityDataSource ID="dsModifyStore" runat="server" 
                 ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
