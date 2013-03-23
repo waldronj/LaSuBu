@@ -15,6 +15,34 @@ namespace LuSuBu
 
         }
         
+        public void Make_Payment(object sender, EventArgs e)
+        {
+            CustomerInfo ci = new CustomerInfo{Address = tbName.Text, Phone = tbPhoneNumber.Text, City = tbCity.Text, Name = tbName.Text, State = ddlState.SelectedValue, Zip = tbZip.Text};
+            StoreCustomerInfo(ci);
+            GeneratePayPalToken();
+        }
+
+
+        public void StoreCustomerInfo(CustomerInfo ci)
+        {
+            
+        }
+
+        public void GeneratePayPalToken()
+        {
+            
+        }
+
+        public class CustomerInfo
+        {
+            public string Name { get; set; }
+            public string Phone { get; set; }
+            public string Address { get; set; }
+            public string City { get; set; }
+            public string Zip { get; set; }
+            public string State { get; set; }
+            public string Email { get; set; }
+        }
 
 
     }

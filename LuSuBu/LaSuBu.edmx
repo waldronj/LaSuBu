@@ -81,6 +81,12 @@
           <Property Type="String" Name="PayerID" Nullable="false" />
           <Property Type="DateTime" Name="Date" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="LaSuBu.TransactionsOrders" FromRole="Transactions" ToRole="Orders" />
+          <Property Type="String" Name="Phone" Nullable="true" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" />
+          <Property Type="String" Name="Zip" Nullable="true" />
+          <Property Type="String" Name="State" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
         </EntityType>
         <EntityType Name="StoreItems">
           <Key>

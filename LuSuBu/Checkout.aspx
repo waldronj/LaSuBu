@@ -103,9 +103,13 @@
                 </asp:DropDownList>
             </td>
         </tr>
+        <tr>
+            <td><h4>Email Address:</h4></td>
+            <td><asp:TextBox runat="server" ID="tbEmail"></asp:TextBox></td>
+        </tr>
          <tr>
              <td></td>
-        <td><asp:ImageButton ID="btnCheckout" runat="server" ImageUrl="~/Images/paypal.jpg" /></td>
+        <td><asp:ImageButton ID="btnCheckout" runat="server" ImageUrl="~/Images/paypal.jpg" OnClick="Make_Payment"/></td>
     </tr>
     </table>
 </div>
