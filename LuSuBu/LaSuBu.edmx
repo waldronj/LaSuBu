@@ -49,6 +49,16 @@
           <EntitySet Name="ContentManagements" EntityType="LaSuBu.ContentManagement" />
           <EntitySet Name="Transactions" EntityType="LaSuBu.Transactions" />
           <EntitySet Name="StoreItems" EntityType="LaSuBu.StoreItems" />
+          <EntitySet Name="Items1" EntityType="LaSuBu.Items" />
+          <EntitySet Name="Orders1" EntityType="LaSuBu.Orders" />
+          <AssociationSet Name="OrderItem" Association="LaSuBu.OrderItem">
+            <End Role="Order" EntitySet="Orders1" />
+            <End Role="Item" EntitySet="Items1" />
+          </AssociationSet>
+          <AssociationSet Name="TransactionsOrders" Association="LaSuBu.TransactionsOrders">
+            <End Role="Transactions" EntitySet="Transactions" />
+            <End Role="Orders" EntitySet="Orders1" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ContentManagement">
           <Key>
@@ -70,6 +80,7 @@
           <Property Type="String" Name="Token" Nullable="false" />
           <Property Type="String" Name="PayerID" Nullable="false" />
           <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="LaSuBu.TransactionsOrders" FromRole="Transactions" ToRole="Orders" />
         </EntityType>
         <EntityType Name="StoreItems">
           <Key>
@@ -81,6 +92,50 @@
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="String" Name="ImageURL" Nullable="true" />
         </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Size" Nullable="false" />
+          <Property Type="String" Name="Price" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="LaSuBu.OrderItem" FromRole="Item" ToRole="Order" />
+          <Property Type="Int32" Name="OrderId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Items" Relationship="LaSuBu.OrderItem" FromRole="Order" ToRole="Item" />
+          <NavigationProperty Name="Transaction" Relationship="LaSuBu.TransactionsOrders" FromRole="Orders" ToRole="Transactions" />
+          <Property Type="Int32" Name="TransactionsId" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderItem">
+          <End Type="LaSuBu.Orders" Role="Order" Multiplicity="1" />
+          <End Type="LaSuBu.Items" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TransactionsOrders">
+          <End Type="LaSuBu.Transactions" Role="Transactions" Multiplicity="1" />
+          <End Type="LaSuBu.Orders" Role="Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transactions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="TransactionsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

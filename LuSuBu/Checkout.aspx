@@ -104,6 +104,7 @@
             </td>
         </tr>
          <tr>
+             <td></td>
         <td><asp:ImageButton ID="btnCheckout" runat="server" ImageUrl="~/Images/paypal.jpg" /></td>
     </tr>
     </table>

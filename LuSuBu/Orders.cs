@@ -12,22 +12,18 @@ using System.Collections.Generic;
 
 namespace LuSuBu
 {
-    public partial class Transactions
+    public partial class Orders
     {
-        public Transactions()
+        public Orders()
         {
-            this.Orders = new HashSet<Orders>();
+            this.Items = new HashSet<Items>();
         }
     
         public int Id { get; set; }
-        public string CustomerName { get; set; }
-        public decimal Amount { get; set; }
-        public string RefenceID { get; set; }
-        public string Token { get; set; }
-        public string PayerID { get; set; }
-        public System.DateTime Date { get; set; }
+        public int TransactionsId { get; set; }
     
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Items> Items { get; set; }
+        public virtual Transactions Transaction { get; set; }
     }
     
 }

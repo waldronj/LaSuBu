@@ -28,5 +28,7 @@ namespace LuSuBu
         public DbSet<ContentManagement> ContentManagements { get; set; }
         public DbSet<Transactions> Transactions { get; set; }
         public DbSet<StoreItems> StoreItems { get; set; }
+        public DbSet<Items> Items1 { get; set; }
+        public DbSet<Orders> Orders1 { get; set; }
     }
 }

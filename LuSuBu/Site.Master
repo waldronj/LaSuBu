@@ -15,24 +15,6 @@
 	<body>
         <form runat="server">
             <div class="row-fluid">
-                <div class="span3 offset7">
-                    <div class="navbar affix">
-                        <div class="navbar-inner">
-					        <div class="container">
-                                <ul class="nav">											
-						            <li><a id="A1" href="~/About.aspx" runat="server">About us</a></li>
-						            <li><a id="A2" href="~/Shop.aspx" runat="server">Shop</a></li>
-						            <li><asp:LoginStatus ID="lgStatus" runat="server"/></li>
-                                    <li><a id="A4" href="~/ViewCart.aspx" runat="server">View Cart</a></li>
-                                    
-					            </ul>
-                            </div>
-                        </div>
-			        </div>
-                </div>
-            </div>
-		    
-            <div class="row-fluid">
                 <div class="span5 offset3 banner">
                     <img src="~/Images/LaSuBuDesigns.png" runat="server" alt="LaSuBu Designs"  />
                 </div>
@@ -62,12 +44,8 @@
 			        </div>
                 </div>
             </div>
-		
-		
 				    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-
 					    </asp:ContentPlaceHolder>
-          
          <div class="row-fluid">
                 <div class="span12">
                     <div class="navbar navbar-fixed-bottom">

@@ -92,12 +92,6 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\LaSuBu.css" />
     <Content Include="Content\images\facebookIcon.jpg" />
-    <Content Include="Images\paypal.jpg" />
-    <Content Include="ManageSite.aspx" />
-    <Content Include="LaSuBu.edmx.sql" />
-    <Content Include="ModifyStore.aspx" />
-    <Content Include="Content\favicon.ico" />
-    <Content Include="Default.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\aspNetHome.png" />
     <Content Include="Images\bullet.png" />
@@ -118,8 +112,14 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\paypal.jpg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
+    <Content Include="ManageSite.aspx" />
+    <Content Include="LaSuBu.edmx.sql" />
+    <Content Include="ModifyStore.aspx" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Default.aspx" />
     <Content Include="packages.config" />
     <EntityDeploy Include="LaSuBu.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -186,6 +186,9 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Items.cs">
+      <DependentUpon>LaSuBuModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ManageSite.aspx.cs">
       <DependentUpon>ManageSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,6 +231,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LaSuBu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop.aspx.cs">
