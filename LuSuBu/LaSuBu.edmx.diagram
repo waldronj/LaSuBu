@@ -6,12 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="44303799f8314490a364cb9065da16e1" Name="Diagram1" >
         <EntityTypeShape EntityType="LaSuBu.ContentManagement" Width="1.5" PointX="6.875" PointY="0.5" />
-        <EntityTypeShape EntityType="LaSuBu.TransItems" Width="1.5" PointX="3.75" PointY="2.5" />
         <EntityTypeShape EntityType="LaSuBu.StoreItem" Width="1.5" PointX="9" PointY="0.5" />
         <EntityTypeShape EntityType="LaSuBu.Transaction" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="LaSuBu.TransStatus" Width="1.5" PointX="3.75" PointY="0.5" />
         <AssociationConnector Association="LaSuBu.TransStatusTransaction" />
-        <AssociationConnector Association="LaSuBu.TransactionTransItems" />
+        <EntityTypeShape EntityType="LaSuBu.TransItem" Width="1.5" PointX="3.75" PointY="2.875" />
+        <AssociationConnector Association="LaSuBu.FK_TransactionTransItems" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -13,7 +13,7 @@ namespace LuSuBu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblTest.Text = System.Configuration.ConfigurationManager.AppSettings["Test"].ToString();
         }
         
         public void Make_Payment(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace LuSuBu
                 var transId = (from x in DB.Transactions
                                   where x.CustomerName == tbName.Text
                                   select x.Id).FirstOrDefault();
-                TransItems ti = new TransItems
+                TransItem ti = new TransItem
                     {
                         Name = item.Product.ItemName,
                         Qty = item.Qty,
@@ -72,7 +72,7 @@ namespace LuSuBu
 
         public void GeneratePayPalToken()
         {
-            List<CartItem> cart = (List<CartItem>)Session["cart"];
+            /*List<CartItem> cart = (List<CartItem>)Session["cart"];
             Session["name"] = Server.HtmlEncode(tbName.Text);
             Session["amount"] = cart.Sum(ci => ci.Qty * ci.Product.Cost);
             var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test,
@@ -80,6 +80,9 @@ namespace LuSuBu
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
             var cancelURL = "http://www.lasubu.com";
             var confirmationUrl = "http://www.lasubu.com/Confirmation.aspx";
+            var items = new Array[];
+            
+            
             var request = gateway.SetExpressCheckout(new Moolah.PayPal.OrderDetails
             {
                 OrderTotal = decimal.Parse(Session["amount"].ToString()),
@@ -99,6 +102,7 @@ namespace LuSuBu
                 // MakePayment();
                 Response.Redirect(request.RedirectUrl);
             } 
+             */
         }
     }
 }

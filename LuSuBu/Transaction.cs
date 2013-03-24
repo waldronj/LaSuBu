@@ -16,7 +16,7 @@ namespace LuSuBu
     {
         public Transaction()
         {
-            this.TransItems = new HashSet<TransItems>();
+            this.TransItems = new HashSet<TransItem>();
         }
     
         public int Id { get; set; }
@@ -34,7 +34,7 @@ namespace LuSuBu
         public string Email { get; set; }
     
         public virtual TransStatus TransStatus { get; set; }
-        public virtual ICollection<TransItems> TransItems { get; set; }
+        public virtual ICollection<TransItem> TransItems { get; set; }
     }
     
 }

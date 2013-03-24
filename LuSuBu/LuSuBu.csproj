@@ -237,7 +237,7 @@
     <Compile Include="Transaction.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransItems.cs">
+    <Compile Include="TransItem.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TransStatus.cs">
@@ -251,7 +251,6 @@
       <DependentUpon>ViewCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Site.Master" />
   </ItemGroup>
