@@ -72,7 +72,33 @@ namespace LuSuBu
 
         public void GeneratePayPalToken()
         {
-            
+            List<CartItem> cart = (List<CartItem>)Session["cart"];
+            Session["name"] = Server.HtmlEncode(tbName.Text);
+            Session["amount"] = cart.Sum(ci => ci.Qty * ci.Product.Cost);
+            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test,
+                                                                      "", "", "");
+            var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
+            var cancelURL = "http://www.lasubu.com";
+            var confirmationUrl = "http://www.lasubu.com/Confirmation.aspx";
+            var request = gateway.SetExpressCheckout(new Moolah.PayPal.OrderDetails
+            {
+                OrderTotal = decimal.Parse(Session["amount"].ToString()),
+                Items = new[]
+                    {
+                        
+                    new Moolah.PayPal.OrderDetailsItem{ = decimal.Parse(Session["amount"].ToString()), Description = "Ordering of goods from LaSuBu.com"}
+                    },
+                CurrencyCodeType = Moolah.PayPal.CurrencyCodeType.USD
+            }, cancelURL, confirmationUrl);
+            if (request.Status == PaymentStatus.Failed)
+            {
+                throw new Exception(request.FailureMessage);
+            }
+            else
+            {
+                // MakePayment();
+                Response.Redirect(request.RedirectUrl);
+            } 
         }
     }
 }
