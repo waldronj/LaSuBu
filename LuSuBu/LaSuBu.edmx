@@ -66,6 +66,7 @@
           <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TransactionId" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" />
         </EntityType>
         <EntityType Name="TransStatus">
           <Key>
@@ -138,7 +139,8 @@
           <Property Type="String" Name="Price" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Transaction" Relationship="LaSuBu.TransactionTransItems" FromRole="TransItems" ToRole="Transaction" />
           <Property Type="Int32" Name="TransactionId" Nullable="false" />
-        </EntityType>
+          <Property Type="Int32" Name="Qty" Nullable="false" />
+          </EntityType>
         <EntityType Name="StoreItem">
           <Key>
             <PropertyRef Name="Id" />
@@ -213,7 +215,7 @@
     <EntitySetMapping Name="TransItems">
       <EntityTypeMapping TypeName="IsTypeOf(LaSuBu.TransItems)">
         <MappingFragment StoreEntitySet="TransItems">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Size" ColumnName="Size" />
           <ScalarProperty Name="Price" ColumnName="Price" />

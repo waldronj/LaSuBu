@@ -22,13 +22,14 @@ namespace LuSuBu
             
             GeneratePayPalToken();
             StoreCustomerInfo(ci);
-            
+            StoreTransactionItems();
+
         }
 
         public void StoreCustomerInfo(CustomerInfo ci)
         {
             var db = new LaSuBuContainer();
-            /*
+            
             Transaction currentTrans = new Transaction
                 {
                     Address = ci.Address,
@@ -43,11 +44,29 @@ namespace LuSuBu
             
             db.Transactions.Add(currentTrans);
             db.SaveChanges();
-             */
+             
+            
+        }
+
+        public void StoreTransactionItems()
+        {
             foreach (var item in (List<CartItem>)Session["cart"])
             {
-                lblTest.Text += string.Format("Name:{0} price:{1} size: {2}<br />", item.Product.ItemName,
-                                              item.Qty*item.Product.Cost, item.Size);
+                LaSuBuContainer DB = new LaSuBuContainer();
+                var transId = (from x in DB.Transactions
+                                  where x.CustomerName == tbName.Text
+                                  select x.Id).FirstOrDefault();
+                TransItems ti = new TransItems
+                    {
+                        Name = item.Product.ItemName,
+                        Qty = item.Qty,
+                        Size = item.Size,
+                        Price = item.Product.Cost.ToString(),
+                        TransactionId = transId
+                        
+                    };
+
+                DB.TransItems.Add(ti);
             }
         }
 

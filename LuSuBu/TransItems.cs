@@ -19,6 +19,7 @@ namespace LuSuBu
         public string Size { get; set; }
         public string Price { get; set; }
         public int TransactionId { get; set; }
+        public int Qty { get; set; }
     
         public virtual Transaction Transaction { get; set; }
     }
