@@ -17,12 +17,12 @@ namespace LuSuBu
         public Transaction()
         {
             this.TransItems = new HashSet<TransItem>();
+            this.TransStatus = new HashSet<TransStatus>();
         }
     
         public int Id { get; set; }
         public string CustomerName { get; set; }
         public decimal Amount { get; set; }
-        public string RefenceID { get; set; }
         public string Token { get; set; }
         public string PayerID { get; set; }
         public System.DateTime Date { get; set; }
@@ -32,9 +32,10 @@ namespace LuSuBu
         public string Zip { get; set; }
         public string State { get; set; }
         public string Email { get; set; }
+        public string ReferenceId { get; set; }
     
-        public virtual TransStatus TransStatus { get; set; }
         public virtual ICollection<TransItem> TransItems { get; set; }
+        public virtual ICollection<TransStatus> TransStatus { get; set; }
     }
     
 }

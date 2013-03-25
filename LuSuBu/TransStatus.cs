@@ -16,6 +16,7 @@ namespace LuSuBu
     {
         public int id { get; set; }
         public string Description { get; set; }
+        public int Transaction_Id { get; set; }
     
         public virtual Transaction Transaction { get; set; }
     }

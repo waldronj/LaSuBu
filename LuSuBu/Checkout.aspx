@@ -9,6 +9,7 @@
             </td>
             <td>
                 <asp:TextBox ID="tbName" runat="server" />
+                <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Name is required." ControlToValidate="tbName"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
