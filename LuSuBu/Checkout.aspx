@@ -113,11 +113,6 @@
         <td><asp:ImageButton ID="btnCheckout" runat="server" ImageUrl="~/Images/paypal.jpg" OnClick="Make_Payment"/></td>
     </tr>
     </table>
-            <br />
-            <br />
-            <br />
-            <br />
-            <asp:Label runat="server" ID="lblTest"></asp:Label>
 </div>
           </div>
 </asp:Content>
