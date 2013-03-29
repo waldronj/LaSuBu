@@ -32,6 +32,12 @@
 					                <li id="b1" runat="server"><a href="~/Default.aspx" runat="server">Home</a></li>
                                     <li id="b2" runat="server"><a href="~/About.aspx" runat="server">About us</a></li>
                                     <li id="b3" runat="server"><a href="~/Shop.aspx" runat="server">Shop</a></li>
+                                    <li id="b4" runat="server"><a href="~/ViewCart.aspx" runat="server">View Cart</a></li>
+				                 </ul>
+                                <ul class="nav pull-right">
+                                    <li>
+                                        <asp:LoginStatus ID="LoginStatus1" runat="server" clas />
+                                    </li>
                                     <asp:LoginView runat="server" ID="logview">
                                         <RoleGroups>
                                             <asp:RoleGroup Roles="admin">
@@ -42,7 +48,7 @@
                                             </asp:RoleGroup>
                                         </RoleGroups>
                                     </asp:LoginView>
-				                 </ul>
+                                </ul>
                             </div>
                         </div>
 			        </div>

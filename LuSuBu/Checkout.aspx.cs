@@ -13,17 +13,17 @@ namespace LuSuBu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblTest.Text = System.Configuration.ConfigurationManager.AppSettings["Test"].ToString();
+            
         }
         
         public void Make_Payment(object sender, EventArgs e)
         {
             CustomerInfo ci = new CustomerInfo{Address = tbName.Text, Phone = tbPhoneNumber.Text, City = tbCity.Text, Name = tbName.Text, State = ddlState.SelectedValue, Zip = tbZip.Text};
             
-            GeneratePayPalToken();
+            
             StoreCustomerInfo(ci);
             StoreTransactionItems();
-
+            GeneratePayPalToken();
         }
 
         public void StoreCustomerInfo(CustomerInfo ci)
@@ -39,7 +39,8 @@ namespace LuSuBu
                     Date = DateTime.Now,
                     Email = ci.Email,
                     Phone = ci.Phone,
-                    Zip = ci.Zip
+                    Zip = ci.Zip,
+                    State = ci.State
                 };
             
             db.Transactions.Add(currentTrans);
@@ -50,9 +51,10 @@ namespace LuSuBu
 
         public void StoreTransactionItems()
         {
+            LaSuBuContainer DB = new LaSuBuContainer();
             foreach (var item in (List<CartItem>)Session["cart"])
             {
-                LaSuBuContainer DB = new LaSuBuContainer();
+            
                 var transId = (from x in DB.Transactions
                                   where x.CustomerName == tbName.Text
                                   select x.Id).FirstOrDefault();
@@ -63,33 +65,33 @@ namespace LuSuBu
                         Size = item.Size,
                         Price = item.Product.Cost.ToString(),
                         TransactionId = transId
-                        
                     };
 
                 DB.TransItems.Add(ti);
             }
+            DB.SaveChanges();
         }
 
         public void GeneratePayPalToken()
         {
             List<CartItem> cart = (List<CartItem>)Session["cart"];
+            
             string userId = System.Configuration.ConfigurationManager.AppSettings["userId"].ToString();
             string password = System.Configuration.ConfigurationManager.AppSettings["password"].ToString();
             string signature = System.Configuration.ConfigurationManager.AppSettings["signature"].ToString();
             
             decimal amount = cart.Sum(ci => ci.Qty * ci.Product.Cost);
-            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password,
-                                                                      signature);
+            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password, signature);
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
             var cancelURL = "http://www.lasubu.com";
-            var confirmationUrl = "http://www.lasubu.com/Confirmation.aspx";
+            var confirmationUrl = "http://localhost:55558/confirmation.aspx";
             
             var request = gateway.SetExpressCheckout(new Moolah.PayPal.OrderDetails
             {
                 OrderTotal = amount,
                 Items = new[]
                     {
-                    new Moolah.PayPal.OrderDetailsItem{UnitPrice = decimal.Parse(Session["amount"].ToString()), Description = "Ordering of goods from LaSuBu.com"}
+                    new Moolah.PayPal.OrderDetailsItem{UnitPrice = decimal.Parse(Session["totalAmount"].ToString()), Description = "Ordering of goods from LaSuBu.com"}
                     },
                 CurrencyCodeType = Moolah.PayPal.CurrencyCodeType.USD
             }, cancelURL, confirmationUrl);
