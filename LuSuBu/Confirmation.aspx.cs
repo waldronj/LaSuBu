@@ -20,7 +20,6 @@ namespace LuSuBu
             else
             {
                 MakePayment();
-                StorePaymentInfo();
             }
         }
 
@@ -47,18 +46,23 @@ namespace LuSuBu
             else
             {
                 lblConfirm.Text = string.Format("Transaction successful! <br />PayPal Reference: <strong>{0}</strong> <br /><br />Thank you {1} for paying online.", response.TransactionReference, Session["name"]);
+                Session["transRef"] = response.TransactionReference;
+                MakePayment();
             }
         }
 
         protected void StorePaymentInfo()
         {
-            int transId = int.Parse(Session["transId"].ToString());
+            var sessionTransId = Session["transId"].ToString();
+            var transId = int.Parse(sessionTransId);
             LaSuBuContainer DB  = new LaSuBuContainer();
             var storeTrans = (from x in DB.Transactions
                                      where x.Id == transId 
                                      select x).FirstOrDefault();
             storeTrans.Token = Request.QueryString["token"];
             storeTrans.PayerID = Request.QueryString["PayerId"];
+            storeTrans.ReferenceId = Session["transRef"].ToString();
+            storeTrans.TransStatusId = 2;
             DB.SaveChanges();
         }
     }

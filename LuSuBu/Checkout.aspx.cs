@@ -37,39 +37,36 @@ namespace LuSuBu
         public void StoreCustomerInfo(CustomerInfo ci)
         {
             var db = new LaSuBuContainer();
-            
+
+            var currentDate = DateTime.Now;
             Transaction currentTrans = new Transaction
                 {
                     Address = ci.Address,
-                    Amount = decimal.Parse((Session["totalAmount"].ToString())),
+                    Amount = Session["totalAmount"].ToString(),
                     City = ci.City,
                     CustomerName = ci.Name,
-                    Date = DateTime.Now,
+                    Date = currentDate,
                     Email = ci.Email,
                     Phone = ci.Phone,
                     Zip = ci.Zip,
-                    State = ci.State
+                    State = ci.State, 
+                    TransStatusId = 1
                 };
             
             db.Transactions.Add(currentTrans);
             db.SaveChanges();
-             
             //setUsername / id of transaction in session to persist PayPal Info
             Session["customerName"] = ci.Name;
-            Session["transId"] = (from x in db.Transactions
-                                  where x.CustomerName == ci.Name
-                                  select x.Id).ToString();
+            Session["transId"] = currentTrans.Id;
         }
 
         public void StoreTransactionItems()
         {
             LaSuBuContainer DB = new LaSuBuContainer();
+            var getTransId = Session["transId"].ToString();
+            var transId = int.Parse(getTransId);
             foreach (var item in (List<CartItem>)Session["cart"])
             {
-            
-                var transId = (from x in DB.Transactions
-                                  where x.CustomerName == tbName.Text
-                                  select x.Id).FirstOrDefault();
                 TransItem ti = new TransItem
                     {
                         Name = item.Product.ItemName,
@@ -92,7 +89,7 @@ namespace LuSuBu
             string password = System.Configuration.ConfigurationManager.AppSettings["password"].ToString();
             string signature = System.Configuration.ConfigurationManager.AppSettings["signature"].ToString();
             
-            decimal amount = cart.Sum(ci => ci.Qty * ci.Product.Cost);
+            decimal amount = (decimal)cart.Sum(ci => ci.Qty * decimal.Parse(ci.Product.Cost));
             var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password, signature);
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
             var cancelURL = "http://www.lasubu.com";

@@ -5,14 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="44303799f8314490a364cb9065da16e1" Name="Diagram1" >
-        <EntityTypeShape EntityType="LaSuBu.ContentManagement" Width="1.5" PointX="6.875" PointY="0.5" />
-        <EntityTypeShape EntityType="LaSuBu.StoreItem" Width="1.5" PointX="9" PointY="0.5" />
-        <EntityTypeShape EntityType="LaSuBu.Transaction" Width="1.5" PointX="0.875" PointY="0.625" />
-        <EntityTypeShape EntityType="LaSuBu.TransItem" Width="1.5" PointX="3.75" PointY="0.5" />
-        <EntityTypeShape EntityType="LaSuBu.TransStatus" Width="1.5" PointX="3.75" PointY="3.375" />
+        <EntityTypeShape EntityType="LaSuBu.ContentManagement" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="LaSuBu.StoreItem" Width="1.5" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="LaSuBu.Transaction" Width="1.5" PointX="6.875" PointY="0.625" />
+        <EntityTypeShape EntityType="LaSuBu.TransItem" Width="1.5" PointX="8.875" PointY="0.625" />
+        <EntityTypeShape EntityType="LaSuBu.TransStatu" Width="1.5" PointX="10.25" PointY="3.375" />
         <AssociationConnector Association="LaSuBu.FK_TransactionTransItems" />
-        <AssociationConnector Association="LaSuBu.FK_TransStatusTransaction" />
-        </Diagram>
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

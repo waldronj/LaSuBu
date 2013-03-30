@@ -12,13 +12,10 @@ using System.Collections.Generic;
 
 namespace LuSuBu
 {
-    public partial class TransStatus
+    public partial class TransStatu
     {
         public int id { get; set; }
         public string Description { get; set; }
-        public int Transaction_Id { get; set; }
-    
-        public virtual Transaction Transaction { get; set; }
     }
     
 }

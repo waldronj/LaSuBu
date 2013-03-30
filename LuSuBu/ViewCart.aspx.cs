@@ -35,10 +35,10 @@ namespace LuSuBu
                                         ci.Product.Cost,
                                         ci.Qty,
                                         ci.Size,
-                                        ItemTotal = ci.Qty * ci.Product.Cost
+                                        ItemTotal = ci.Qty * decimal.Parse(ci.Product.Cost)
                                     };
 
-                decimal total = cart.Sum(ci => ci.Qty * ci.Product.Cost);
+                decimal total = (decimal)cart.Sum(ci => ci.Qty * decimal.Parse(ci.Product.Cost));
                 lblTotal.Text = string.Format("Total Amount: {0:c}", total);
                 Session["totalAmount"] = total;
             }

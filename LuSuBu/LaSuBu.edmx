@@ -15,10 +15,6 @@
             <End Role="Transactions" EntitySet="Transactions" />
             <End Role="TransItems" EntitySet="TransItems" />
           </AssociationSet>
-          <AssociationSet Name="FK_TransStatusTransaction" Association="LaSuBu.Store.FK_TransStatusTransaction">
-            <End Role="Transactions" EntitySet="Transactions" />
-            <End Role="TransStatus" EntitySet="TransStatus" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ContentManagements">
           <Key>
@@ -35,7 +31,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Cost" Type="decimal" Nullable="false" Precision="38" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="20" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="ImageURL" Type="nvarchar(max)" />
         </EntityType>
@@ -45,7 +41,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Amount" Type="decimal" Nullable="false" Precision="2" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="20" />
           <Property Name="Token" Type="nvarchar(max)" />
           <Property Name="PayerID" Type="nvarchar(max)" />
           <Property Name="Date" Type="datetime" Nullable="false" />
@@ -56,6 +52,7 @@
           <Property Name="State" Type="nvarchar" MaxLength="100" />
           <Property Name="Email" Type="nvarchar" MaxLength="250" />
           <Property Name="ReferenceId" Type="nvarchar(max)" />
+          <Property Name="TransStatusId" Type="int" />
         </EntityType>
         <EntityType Name="TransItems">
           <Key>
@@ -75,7 +72,6 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Transaction_Id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_TransactionTransItems">
           <End Role="Transactions" Type="LaSuBu.Store.Transactions" Multiplicity="1" />
@@ -89,18 +85,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransStatusTransaction">
-          <End Role="Transactions" Type="LaSuBu.Store.Transactions" Multiplicity="1" />
-          <End Role="TransStatus" Type="LaSuBu.Store.TransStatus" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Transactions">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TransStatus">
-              <PropertyRef Name="Transaction_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -110,14 +94,10 @@
           <EntitySet Name="StoreItems" EntityType="LaSuBu.StoreItem" />
           <EntitySet Name="Transactions" EntityType="LaSuBu.Transaction" />
           <EntitySet Name="TransItems" EntityType="LaSuBu.TransItem" />
-          <EntitySet Name="TransStatus1" EntityType="LaSuBu.TransStatus" />
+          <EntitySet Name="TransStatus" EntityType="LaSuBu.TransStatu" />
           <AssociationSet Name="FK_TransactionTransItems" Association="LaSuBu.FK_TransactionTransItems">
             <End Role="Transaction" EntitySet="Transactions" />
             <End Role="TransItem" EntitySet="TransItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransStatusTransaction" Association="LaSuBu.FK_TransStatusTransaction">
-            <End Role="Transaction" EntitySet="Transactions" />
-            <End Role="TransStatu" EntitySet="TransStatus1" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ContentManagement">
@@ -135,7 +115,7 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="ItemName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="Cost" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ImageURL" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -145,7 +125,7 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="2" Scale="0" />
+          <Property Type="String" Name="Amount" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Token" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="PayerID" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
@@ -156,8 +136,8 @@
           <Property Type="String" Name="State" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Email" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ReferenceId" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TransStatusId" />
           <NavigationProperty Name="TransItems" Relationship="LaSuBu.FK_TransactionTransItems" FromRole="Transaction" ToRole="TransItem" />
-          <NavigationProperty Name="TransStatus" Relationship="LaSuBu.FK_TransStatusTransaction" FromRole="Transaction" ToRole="TransStatu" />
         </EntityType>
         <EntityType Name="TransItem">
           <Key>
@@ -171,15 +151,13 @@
           <Property Type="Int32" Name="Qty" />
           <NavigationProperty Name="Transaction" Relationship="LaSuBu.FK_TransactionTransItems" FromRole="TransItem" ToRole="Transaction" />
         </EntityType>
-        <EntityType Name="TransStatus">
+        <EntityType Name="TransStatu">
           <Key>
             <PropertyRef Name="id" />
             <PropertyRef Name="Description" />
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Transaction_Id" Nullable="false" />
-          <NavigationProperty Name="Transaction" Relationship="LaSuBu.FK_TransStatusTransaction" FromRole="TransStatu" ToRole="Transaction" />
         </EntityType>
         <Association Name="FK_TransactionTransItems">
           <End Type="LaSuBu.Transaction" Role="Transaction" Multiplicity="1" />
@@ -193,48 +171,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransStatusTransaction">
-          <End Type="LaSuBu.Transaction" Role="Transaction" Multiplicity="1" />
-          <End Type="LaSuBu.TransStatus" Role="TransStatu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Transaction">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TransStatu">
-              <PropertyRef Name="Transaction_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LaSuBuStoreContainer" CdmEntityContainer="LaSuBuContainer">
-    <EntitySetMapping Name="ContentManagements">
-      <EntityTypeMapping TypeName="IsTypeOf(LaSuBu.ContentManagement)">
-        <MappingFragment StoreEntitySet="ContentManagements">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PageName" ColumnName="PageName" />
-          <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="Headline" ColumnName="Headline" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="StoreItems">
-      <EntityTypeMapping TypeName="IsTypeOf(LaSuBu.StoreItem)">
-        <MappingFragment StoreEntitySet="StoreItems">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-          <ScalarProperty Name="Cost" ColumnName="Cost" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+          <EntitySetMapping Name="ContentManagements">
+            <EntityTypeMapping TypeName="LaSuBu.ContentManagement">
+              <MappingFragment StoreEntitySet="ContentManagements">
+                <ScalarProperty Name="Headline" ColumnName="Headline" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreItems">
+            <EntityTypeMapping TypeName="LaSuBu.StoreItem">
+              <MappingFragment StoreEntitySet="StoreItems">
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="LaSuBu.Transaction">
               <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="TransStatusId" ColumnName="TransStatusId" />
                 <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="State" ColumnName="State" />
@@ -263,16 +230,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TransStatus1">
-            <EntityTypeMapping TypeName="LaSuBu.TransStatus">
+          <EntitySetMapping Name="TransStatus">
+            <EntityTypeMapping TypeName="LaSuBu.TransStatu">
               <MappingFragment StoreEntitySet="TransStatus">
-                <ScalarProperty Name="Transaction_Id" ColumnName="Transaction_Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-  </EntityContainerMapping>
+        </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

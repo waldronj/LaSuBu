@@ -99,9 +99,7 @@
     <Content Include="Images\LaSuBuDesigns.png" />
     <Content Include="Images\paypal.jpg" />
     <Content Include="Images\twitter.png" />
-    <Content Include="LaSuBu.edmx.sql">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="LaSuBu.edmx.sql" />
     <Content Include="ManageSite.aspx" />
     <Content Include="ModifyStore.aspx" />
     <Content Include="Content\favicon.ico" />
@@ -181,6 +179,9 @@
     <Compile Include="Confirmation.aspx.designer.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ContentManagement.cs">
+      <DependentUpon>LaSuBuModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ManageSite.aspx.cs">
       <DependentUpon>ManageSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,9 +190,6 @@
       <DependentUpon>ManageSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\CartItem.cs" />
-    <Compile Include="ContentManagement.cs">
-      <DependentUpon>LaSuBuModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="LaSuBuModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,7 +246,7 @@
     <Compile Include="TransItem.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransStatus.cs">
+    <Compile Include="TransStatu.cs">
       <DependentUpon>LaSuBuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewCart.aspx.cs">

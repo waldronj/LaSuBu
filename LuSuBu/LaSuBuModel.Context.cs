@@ -29,6 +29,6 @@ namespace LuSuBu
         public DbSet<StoreItem> StoreItems { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransItem> TransItems { get; set; }
-        public DbSet<TransStatus> TransStatus1 { get; set; }
+        public DbSet<TransStatu> TransStatus { get; set; }
     }
 }
