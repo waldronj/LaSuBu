@@ -18,12 +18,20 @@ namespace LuSuBu
         
         public void Make_Payment(object sender, EventArgs e)
         {
-            CustomerInfo ci = new CustomerInfo{Address = tbName.Text, Phone = tbPhoneNumber.Text, City = tbCity.Text, Name = tbName.Text, State = ddlState.SelectedValue, Zip = tbZip.Text};
+            CustomerInfo ci = new CustomerInfo{Address = tbAddress.Text, Phone = tbPhoneNumber.Text, City = tbCity.Text, Name = tbName.Text, State = ddlState.SelectedValue, Zip = tbZip.Text};
+
+            if (Session["cart"] != null)
+            {
+                StoreCustomerInfo(ci);
+                StoreTransactionItems();
+                GeneratePayPalToken();    
+            }
+            else
+            {
+                lblWarning.Text = "No items in your shopping cart";
+                lblWarning.ForeColor = System.Drawing.Color.Red;
+            }
             
-            
-            StoreCustomerInfo(ci);
-            StoreTransactionItems();
-            GeneratePayPalToken();
         }
 
         public void StoreCustomerInfo(CustomerInfo ci)
@@ -46,7 +54,11 @@ namespace LuSuBu
             db.Transactions.Add(currentTrans);
             db.SaveChanges();
              
-            
+            //setUsername / id of transaction in session to persist PayPal Info
+            Session["customerName"] = ci.Name;
+            Session["transId"] = (from x in db.Transactions
+                                  where x.CustomerName == ci.Name
+                                  select x.Id).ToString();
         }
 
         public void StoreTransactionItems()
