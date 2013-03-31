@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/29/2013 22:48:57
+-- Date Created: 03/31/2013 00:06:29
 -- Generated from EDMX file: H:\Programming\GitHub\LaSuBu\LuSuBu\LaSuBu.edmx
 -- --------------------------------------------------
 
@@ -20,9 +20,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TransactionTransItems]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TransItems] DROP CONSTRAINT [FK_TransactionTransItems];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TransStatusTransaction]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[TransStatus] DROP CONSTRAINT [FK_TransStatusTransaction];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -39,9 +36,6 @@ IF OBJECT_ID(N'[dbo].[Transactions]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[TransItems]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TransItems];
-GO
-IF OBJECT_ID(N'[dbo].[TransStatus]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TransStatus];
 GO
 
 -- --------------------------------------------------
@@ -61,7 +55,7 @@ GO
 CREATE TABLE [dbo].[StoreItems] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [ItemName] nvarchar(max)  NOT NULL,
-    [Cost] decimal(38,0)  NOT NULL,
+    [Cost] nvarchar(20)  NULL,
     [Description] nvarchar(max)  NULL,
     [ImageURL] nvarchar(max)  NULL
 );
@@ -71,7 +65,7 @@ GO
 CREATE TABLE [dbo].[Transactions] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [CustomerName] nvarchar(max)  NOT NULL,
-    [Amount] decimal(2,0)  NOT NULL,
+    [Amount] nvarchar(20)  NULL,
     [Token] nvarchar(max)  NULL,
     [PayerID] nvarchar(max)  NULL,
     [Date] datetime  NOT NULL,
@@ -82,7 +76,7 @@ CREATE TABLE [dbo].[Transactions] (
     [State] nvarchar(100)  NULL,
     [Email] nvarchar(250)  NULL,
     [ReferenceId] nvarchar(max)  NULL,
-    [TransStatusId] int  NULL
+    [Status] nvarchar(20)  NULL
 );
 GO
 
@@ -94,13 +88,6 @@ CREATE TABLE [dbo].[TransItems] (
     [Price] nvarchar(max)  NOT NULL,
     [TransactionId] int  NOT NULL,
     [Qty] int  NULL
-);
-GO
-
--- Creating table 'TransStatus1'
-CREATE TABLE [dbo].[TransStatus1] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [Description] nvarchar(50)  NOT NULL
 );
 GO
 
@@ -130,12 +117,6 @@ GO
 ALTER TABLE [dbo].[TransItems]
 ADD CONSTRAINT [PK_TransItems]
     PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [id], [Description] in table 'TransStatus1'
-ALTER TABLE [dbo].[TransStatus1]
-ADD CONSTRAINT [PK_TransStatus1]
-    PRIMARY KEY CLUSTERED ([id], [Description] ASC);
 GO
 
 -- --------------------------------------------------
