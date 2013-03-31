@@ -93,7 +93,7 @@ namespace LuSuBu
             var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password, signature);
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
             var cancelURL = "http://www.lasubu.com";
-            var confirmationUrl = "http://localhost:9999/confirmation.aspx";
+            var confirmationUrl = "http://www.lasubu.com/confirmation.aspx";
             
             var request = gateway.SetExpressCheckout(new Moolah.PayPal.OrderDetails
             {

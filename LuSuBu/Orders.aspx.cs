@@ -13,18 +13,16 @@ namespace LuSuBu
         {
             if (!User.IsInRole("admin"))
             {
-                Response.Redirect("http://localhost:9999/");
-                gvOrders.DataSourceID = "dsTransactions";
-                gvOrders.DataBind();
+                Response.Redirect("http://www.lasubu.com/");
+               
             }
             
         }
 
-        protected void dsOrderDetails_Updated(object sender, SqlDataSourceStatusEventArgs e)
+        protected void dsDetails_Updated(object sender, SqlDataSourceStatusEventArgs e)
         {
-            gvOrders.DataSource = dsTransactions;
+            dsTransactions.DataBind();
             gvOrders.DataBind();
-
         }
     }
 }

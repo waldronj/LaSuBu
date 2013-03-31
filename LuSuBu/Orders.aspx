@@ -62,10 +62,10 @@
                         <br />
                     </div>
                         <br />
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                        <br />
+                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" /> | 
+                        
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                        <br />
+                    <br /><br />
                    
                 </EditItemTemplate>
                 <EmptyDataTemplate>
@@ -88,7 +88,6 @@
                
                 <ItemTemplate>
                     <div class="span4">
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Edit" Text="Edit" />
                         <h3>Order Info</h3>
                         <strong>Order Id:</strong> <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
                         <br />
@@ -128,6 +127,10 @@
                         <strong>Email:</strong> <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
                         <br />
                     </div>
+                    <div>
+                        <asp:Button ID="UpdateButton" runat="server" CommandName="Edit" Text="Edit" />
+                        <br /><br />
+                    </div>
                         
                         
                         
@@ -144,7 +147,7 @@
                 </LayoutTemplate>
             </asp:ListView>
 
-            <asp:SqlDataSource ID="dsDetails" runat="server" ConnectionString="<%$ ConnectionStrings:LaSuBuConnectionString %>" SelectCommand="SELECT * FROM [Transactions] WHERE ([Id] = @Id)" DeleteCommand="DELETE FROM [Transactions] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Transactions] ([CustomerName], [Amount], [Token], [PayerID], [Date], [Phone], [Address], [City], [Zip], [State], [Email], [ReferenceId], [Status]) VALUES (@CustomerName, @Amount, @Token, @PayerID, @Date, @Phone, @Address, @City, @Zip, @State, @Email, @ReferenceId, @Status)" UpdateCommand="UPDATE [Transactions] SET [CustomerName] = @CustomerName, [Amount] = @Amount, [Token] = @Token, [PayerID] = @PayerID, [Date] = @Date, [Phone] = @Phone, [Address] = @Address, [City] = @City, [Zip] = @Zip, [State] = @State, [Email] = @Email, [ReferenceId] = @ReferenceId, [Status] = @Status WHERE [Id] = @Id">
+            <asp:SqlDataSource ID="dsDetails" runat="server" ConnectionString="<%$ ConnectionStrings:LaSuBuConnectionString %>" SelectCommand="SELECT * FROM [Transactions] WHERE ([Id] = @Id)" DeleteCommand="DELETE FROM [Transactions] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Transactions] ([CustomerName], [Amount], [Token], [PayerID], [Date], [Phone], [Address], [City], [Zip], [State], [Email], [ReferenceId], [Status]) VALUES (@CustomerName, @Amount, @Token, @PayerID, @Date, @Phone, @Address, @City, @Zip, @State, @Email, @ReferenceId, @Status)" UpdateCommand="UPDATE [Transactions] SET [CustomerName] = @CustomerName, [Amount] = @Amount, [Token] = @Token, [PayerID] = @PayerID, [Date] = @Date, [Phone] = @Phone, [Address] = @Address, [City] = @City, [Zip] = @Zip, [State] = @State, [Email] = @Email, [ReferenceId] = @ReferenceId, [Status] = @Status WHERE [Id] = @Id" OnUpdated="dsDetails_Updated">
                 <DeleteParameters>
                     <asp:Parameter Name="Id" Type="Int32" />
                 </DeleteParameters>
@@ -183,6 +186,8 @@
                     <asp:Parameter Name="Id" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+            <div class="row-fluid">
+                <div class="span12">
             <asp:GridView ID="gvItems" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="dsOrderDetails" CssClass="table-hover table-striped" CellPadding="8">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
@@ -193,7 +198,9 @@
                     <asp:BoundField DataField="Qty" HeaderText="Qty" SortExpression="Qty" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="dsOrderDetails" runat="server" ConnectionString="<%$ ConnectionStrings:LaSuBuConnectionString %>" SelectCommand="SELECT * FROM [TransItems] WHERE ([TransactionId] = @TransactionId)" OnUpdated="dsOrderDetails_Updated">
+                </div>
+                </div>
+            <asp:SqlDataSource ID="dsOrderDetails" runat="server" ConnectionString="<%$ ConnectionStrings:LaSuBuConnectionString %>" SelectCommand="SELECT * FROM [TransItems] WHERE ([TransactionId] = @TransactionId)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="gvOrders" Name="TransactionId" PropertyName="SelectedValue" Type="Int32" />
                 </SelectParameters>
@@ -201,4 +208,9 @@
         </div>
     </div>
    
+    
+    <script>
+        $("#MainContent_lvDetails_ctrl0_UpdateButton_0").addClass("btn btn-primary");
+        $("#MainContent_lvDetails_ctrl0_CancelButton_0").addClass("btn btn-inverse");
+    </script>
 </asp:Content>
