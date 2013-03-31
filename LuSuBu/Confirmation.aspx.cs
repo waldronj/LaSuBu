@@ -20,6 +20,7 @@ namespace LuSuBu
             else
             {
                 MakePayment();
+                StorePaymentInfo();
             }
         }
 
@@ -52,8 +53,7 @@ namespace LuSuBu
 
         protected void StorePaymentInfo()
         {
-            var sessionTransId = Session["transId"].ToString();
-            var transId = int.Parse(sessionTransId);
+            var transId = GetTrans();
             LaSuBuContainer DB  = new LaSuBuContainer();
             var storeTrans = (from x in DB.Transactions
                                      where x.Id == transId 
@@ -63,6 +63,13 @@ namespace LuSuBu
             storeTrans.ReferenceId = Session["transRef"].ToString();
             storeTrans.Status = "Payment Received";
             DB.SaveChanges();
+        }
+
+        protected int GetTrans()
+        {
+            var sessionTransId = Session["transId"].ToString();
+            var transId = int.Parse(sessionTransId);
+            return transId;
         }
     }
 }
