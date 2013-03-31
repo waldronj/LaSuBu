@@ -11,10 +11,20 @@ namespace LuSuBu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.IsInRole("admin"))
+            {
+                Response.Redirect("http://localhost:9999/");
+                gvOrders.DataSourceID = "dsTransactions";
+                gvOrders.DataBind();
+            }
             
         }
 
+        protected void dsOrderDetails_Updated(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            gvOrders.DataSource = dsTransactions;
+            gvOrders.DataBind();
 
-        
+        }
     }
 }
