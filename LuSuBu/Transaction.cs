@@ -32,7 +32,7 @@ namespace LuSuBu
         public string State { get; set; }
         public string Email { get; set; }
         public string ReferenceId { get; set; }
-        public Nullable<int> TransStatusId { get; set; }
+        public string Status { get; set; }
     
         public virtual ICollection<TransItem> TransItems { get; set; }
     }

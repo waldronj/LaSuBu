@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="LaSuBu.StoreItem" Width="1.5" PointX="2.5" PointY="0.5" />
         <EntityTypeShape EntityType="LaSuBu.Transaction" Width="1.5" PointX="6.875" PointY="0.625" />
         <EntityTypeShape EntityType="LaSuBu.TransItem" Width="1.5" PointX="8.875" PointY="0.625" />
-        <EntityTypeShape EntityType="LaSuBu.TransStatu" Width="1.5" PointX="10.25" PointY="3.375" />
         <AssociationConnector Association="LaSuBu.FK_TransactionTransItems" />
       </Diagram>
     </edmx:Diagrams>

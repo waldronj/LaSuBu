@@ -50,7 +50,7 @@ namespace LuSuBu
                     Phone = ci.Phone,
                     Zip = ci.Zip,
                     State = ci.State, 
-                    TransStatusId = 1
+                    Status = "Failed"
                 };
             
             db.Transactions.Add(currentTrans);
@@ -93,14 +93,14 @@ namespace LuSuBu
             var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password, signature);
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
             var cancelURL = "http://www.lasubu.com";
-            var confirmationUrl = "http://localhost:55558/confirmation.aspx";
+            var confirmationUrl = "http://localhost:9999/confirmation.aspx";
             
             var request = gateway.SetExpressCheckout(new Moolah.PayPal.OrderDetails
             {
                 OrderTotal = amount,
                 Items = new[]
                     {
-                    new Moolah.PayPal.OrderDetailsItem{UnitPrice = decimal.Parse(Session["totalAmount"].ToString()), Description = "Ordering of goods from LaSuBu.com"}
+                    new Moolah.PayPal.OrderDetailsItem{UnitPrice = decimal.Parse(Session["totalAmount"].ToString()), Description = "Goods from LaSuBu.com"}
                     },
                 CurrencyCodeType = Moolah.PayPal.CurrencyCodeType.USD
             }, cancelURL, confirmationUrl);

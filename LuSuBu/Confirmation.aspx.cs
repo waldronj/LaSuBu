@@ -47,7 +47,6 @@ namespace LuSuBu
             {
                 lblConfirm.Text = string.Format("Transaction successful! <br />PayPal Reference: <strong>{0}</strong> <br /><br />Thank you {1} for paying online.", response.TransactionReference, Session["name"]);
                 Session["transRef"] = response.TransactionReference;
-                MakePayment();
             }
         }
 
@@ -62,7 +61,7 @@ namespace LuSuBu
             storeTrans.Token = Request.QueryString["token"];
             storeTrans.PayerID = Request.QueryString["PayerId"];
             storeTrans.ReferenceId = Session["transRef"].ToString();
-            storeTrans.TransStatusId = 2;
+            storeTrans.Status = "Payment Received";
             DB.SaveChanges();
         }
     }
