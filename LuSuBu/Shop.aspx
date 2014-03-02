@@ -18,7 +18,7 @@
         OnSelectedIndexChanging="lvShop_SelectedIndexChanging">
         <AlternatingItemTemplate>
             <td id="Td1" runat="server" style="">
-                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'   CommandName="Select" Width="70%" Height="70%" CssClass="img-rounded"/>
+                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'   CommandName="Select" Width="50%" Height="50%" CssClass="img-rounded"/>
                 <br />
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                 <br />
@@ -91,7 +91,7 @@
         </InsertItemTemplate>      
         <ItemTemplate>
             <td runat="server">
-                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'  CommandName="Select" Width="70%" Height="70%" CssClass="img-rounded"/>
+                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'  CommandName="Select" Width="50%" Height="50%" CssClass="img-rounded"/>
                 <br />
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                 <br />

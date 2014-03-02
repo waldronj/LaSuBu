@@ -7,7 +7,7 @@
                 ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
                 EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EnableDelete="True"
                 EntitySetName="StoreItems"></asp:EntityDataSource>
-            <asp:ListView ID="lvModify" runat="server" DataKeyNames="Id" OnItemInserting="on_item_inserting"
+            <asp:ListView ID="lvModify" runat="server" DataKeyNames="Id" OnItemInserting="on_item_inserting" OnItemUpdating="on_item_updating"
                 DataSourceID="dsModifyStore" InsertItemPosition="FirstItem">
         
                 <EditItemTemplate>
@@ -28,8 +28,7 @@
                                 Text='<%# Bind("Description") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="ImageURLTextBox" runat="server" 
-                                Text='<%# Bind("ImageURL") %>' />
+                            <asp:FileUpload runat="server" ID="fupload"/>
                         </td>
                         <td>
                              <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"

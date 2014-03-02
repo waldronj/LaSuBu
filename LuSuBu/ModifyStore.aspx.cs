@@ -41,7 +41,18 @@ namespace LuSuBu
                 var imageUrl = "Images\\store\\" + DateTime.Now.ToString("yyyyMMddHHmmss") +fupload.FileName;
                 e.Values["ImageURL"] = imageUrl;
             }
-            
+        }
+
+        protected void on_item_updating(object sender, ListViewUpdateEventArgs e)
+        {
+
+            var fupload = (FileUpload)lvModify.EditItem.FindControl("fupload");
+            if (fupload.HasFile)
+            {
+                fupload.SaveAs(@"C:\HostingSpaces\jwaldron\lasubu.com\wwwroot\Images\store\" + DateTime.Now.ToString("yyyyMMddHHmmss") + fupload.FileName);
+                var imageUrl = "Images\\store\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + fupload.FileName;
+                e.NewValues["ImageURL"] = imageUrl;
+            }
         }
     }
 }
