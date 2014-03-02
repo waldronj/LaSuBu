@@ -7,8 +7,8 @@
                 ConnectionString="name=LaSuBuContainer" DefaultContainerName="LaSuBuContainer" 
                 EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EnableDelete="True"
                 EntitySetName="StoreItems"></asp:EntityDataSource>
-            <asp:ListView ID="lvModify" runat="server" DataKeyNames="Id" 
-                DataSourceID="dsModifyStore" InsertItemPosition="LastItem">
+            <asp:ListView ID="lvModify" runat="server" DataKeyNames="Id" OnItemInserting="on_item_inserting"
+                DataSourceID="dsModifyStore" InsertItemPosition="FirstItem">
         
                 <EditItemTemplate>
                     <tr>
@@ -18,7 +18,6 @@
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
                                 Text="Cancel" CssClass="btn btn-danger"/>
                         </td>
-                        
                         <td>
                             <asp:TextBox ID="ItemNameTextBox" runat="server" 
                                 Text='<%# Bind("ItemName") %>' />
@@ -53,19 +52,18 @@
                         </td>
                        
                         <td>
-                            <asp:TextBox ID="ItemNameTextBox" runat="server" 
+                            <asp:TextBox ID="ItemNameTextBox" runat="server"  placeholder="Item Name"
                                 Text='<%# Bind("ItemName") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="CostTextBox" runat="server" Text='<%# Bind("Cost") %>' />
+                            <asp:TextBox ID="CostTextBox" runat="server" Text='<%# Bind("Cost") %>' placeholder="Cost" />
                         </td>
                         <td>
-                            <asp:TextBox ID="DescriptionTextBox" runat="server" 
+                            <asp:TextBox ID="DescriptionTextBox" runat="server" placeholder="Description"
                                 Text='<%# Bind("Description") %>' />
                         </td>
                         <td style="text-align:left">
-                            <asp:TextBox ID="ImageURLTextBox" runat="server" 
-                                Text='<%# Bind("ImageURL") %>' />
+                            <asp:FileUpload runat="server" ID="fupload"/>
                         </td>
                     </tr>
                 </InsertItemTemplate>

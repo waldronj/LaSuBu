@@ -30,5 +30,18 @@ namespace LuSuBu
                 ((Control)sender).Visible = false;
             }
         }
+
+        protected void on_item_inserting(object sender, ListViewInsertEventArgs e)
+        {
+            
+            var fupload = (FileUpload)lvModify.InsertItem.FindControl("fupload");
+            if (fupload.HasFile)
+            {
+                fupload.SaveAs(@"C:\HostingSpaces\jwaldron\lasubu.com\wwwroot\Images\store\" + fupload.FileName);
+                var imageUrl = "Images\\store\\" + fupload.FileName;
+                e.Values["ImageURL"] = imageUrl;
+            }
+            
+        }
     }
 }
