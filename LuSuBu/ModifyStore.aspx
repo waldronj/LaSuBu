@@ -15,8 +15,6 @@
                         <td>
                             <asp:Button ID="UpdateButton" runat="server" CommandName="Update" OnPreRender="AdminControl_PreRender"
                                 Text="Update" CssClass="btn btn-primary"/>
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
-                                Text="Cancel" CssClass="btn btn-danger"/>
                         </td>
                         <td>
                             <asp:TextBox ID="ItemNameTextBox" runat="server" 
@@ -33,6 +31,10 @@
                             <asp:TextBox ID="ImageURLTextBox" runat="server" 
                                 Text='<%# Bind("ImageURL") %>' />
                         </td>
+                        <td>
+                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
+                                Text="Cancel" CssClass="btn btn-danger"/>
+                        </td>
                     </tr>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
@@ -47,8 +49,6 @@
                         <td>
                             <asp:Button ID="InsertButton" runat="server" CommandName="Insert" OnPreRender="AdminControl_PreRender"
                                 Text="Insert" CssClass="btn btn-primary"/>
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
-                                Text="Clear" CssClass="btn btn-danger"/>
                         </td>
                        
                         <td>
@@ -65,13 +65,16 @@
                         <td style="text-align:left">
                             <asp:FileUpload runat="server" ID="fupload"/>
                         </td>
+                        <td>
+                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" OnPreRender="AdminControl_PreRender"
+                                Text="Clear" CssClass="btn btn-danger"/>
+                        </td>
                     </tr>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <tr>
                         <td>
                             <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" OnPreRender="AdminControl_PreRender" CssClass="btn btn-primary"/>
-                            | <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" OnPreRender="AdminControl_PreRender" CssClass="btn btn-inverse"/>
                         </td>
                         <td style="padding-left:1em">
                              <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
@@ -85,6 +88,9 @@
                         </td>
                         <td style="text-align:left">
                             <asp:Label ID="ImageURLLabel" runat="server" Text='<%# Eval("ImageURL") %>'  />
+                        </td>
+                        <td>
+                             <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" OnPreRender="AdminControl_PreRender" CssClass="btn btn-inverse"/>
                         </td>
                     </tr>
                 </ItemTemplate>
