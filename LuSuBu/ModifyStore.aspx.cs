@@ -37,8 +37,8 @@ namespace LuSuBu
             var fupload = (FileUpload)lvModify.InsertItem.FindControl("fupload");
             if (fupload.HasFile)
             {
-                fupload.SaveAs(@"C:\HostingSpaces\jwaldron\lasubu.com\wwwroot\Images\store\" + fupload.FileName);
-                var imageUrl = "Images\\store\\" + fupload.FileName;
+                fupload.SaveAs(@"C:\HostingSpaces\jwaldron\lasubu.com\wwwroot\Images\store\" + DateTime.Now.ToString("yyyyMMddHHmmss") + fupload.FileName);
+                var imageUrl = "Images\\store\\" + DateTime.Now.ToString("yyyyMMddHHmmss") +fupload.FileName;
                 e.Values["ImageURL"] = imageUrl;
             }
             
