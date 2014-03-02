@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Moolah;
 using System.Data.Entity;
+using Moolah.PayPal;
 
 namespace LuSuBu
 {
@@ -21,6 +22,7 @@ namespace LuSuBu
             {
                 MakePayment();
                 StorePaymentInfo();
+                
             }
         }
 
@@ -29,11 +31,12 @@ namespace LuSuBu
             string userId = System.Configuration.ConfigurationManager.AppSettings["userId"].ToString();
             string password = System.Configuration.ConfigurationManager.AppSettings["password"].ToString();
             string signature = System.Configuration.ConfigurationManager.AppSettings["signature"].ToString();
-            decimal amount = decimal.Parse(Session["totalamount"].ToString());
-            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password, signature);
+            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Live, userId, password, signature);
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
+            var details = gateway.GetExpressCheckoutDetails(Request.QueryString["token"]);
+            decimal amount = details.OrderDetails.OrderTotal;
+            lblConfirm.Text = amount.ToString();
             lblConfirm.Text = Request.QueryString["token"] + " Was successfully placed";
-            var checkoutDetails = gateway.GetExpressCheckoutDetails(Request["token"]);
             var response = gateway.DoExpressCheckoutPayment(amount, Moolah.PayPal.CurrencyCodeType.USD, Request["token"], Request["PayerID"]);
             if (response.Status == PaymentStatus.Failed)
             {
@@ -67,9 +70,13 @@ namespace LuSuBu
 
         protected int GetTrans()
         {
-            var sessionTransId = Session["transId"].ToString();
-            var transId = int.Parse(sessionTransId);
-            return transId;
+            string Token = Request.QueryString["token"];
+           LaSuBuContainer DB = new LaSuBuContainer();
+            var trans = (from x in DB.Transactions
+                          where Token == x.Token
+                          select x).SingleOrDefault();
+            int dbTransId = trans.Id;
+            return dbTransId;
         }
     }
 }

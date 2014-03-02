@@ -9,14 +9,15 @@ using LuSuBu;
 /// </summary>
 public class CartItem
 {
-	public CartItem(StoreItem product, int qty, string size)
+	public CartItem(StoreItem product, int qty, string size, string color)
 	{
         Product = product;
         Qty = qty;
         Size = size;
-		//
-		// TODO: Add constructor logic here
-		//
+	    Color = color;
+	    //
+	    // TODO: Add constructor logic here
+	    //
 	}
 
     public StoreItem Product
@@ -34,6 +35,12 @@ public class CartItem
     public string Size
     {
         get;
+        set;
+    }
+
+    public string Color
+    {
+        get; 
         set;
     }
 

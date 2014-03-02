@@ -5,78 +5,79 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LaSuBu.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="LaSuBuStoreContainer">
-    <EntitySet Name="ContentManagements" EntityType="LaSuBu.Store.ContentManagements" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="StoreItems" EntityType="LaSuBu.Store.StoreItems" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Transactions" EntityType="LaSuBu.Store.Transactions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TransItems" EntityType="LaSuBu.Store.TransItems" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_TransactionTransItems" Association="LaSuBu.Store.FK_TransactionTransItems">
-      <End Role="Transaction" EntitySet="Transactions" />
-      <End Role="TransItem" EntitySet="TransItems" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="ContentManagements">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PageName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Headline" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="StoreItems">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Cost" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ImageURL" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Transactions">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Amount" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="Token" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PayerID" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="150" />
-    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="150" />
-    <Property Name="Zip" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="State" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="ReferenceId" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="20" />
-  </EntityType>
-  <EntityType Name="TransItems">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TransactionId" Type="int" Nullable="false" />
-    <Property Name="Qty" Type="int" Nullable="true" />
-  </EntityType>
-  <Association Name="FK_TransactionTransItems">
-    <End Role="Transaction" Type="LaSuBu.Store.Transactions" Multiplicity="1" />
-    <End Role="TransItem" Type="LaSuBu.Store.TransItems" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transaction">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TransItem">
-        <PropertyRef Name="TransactionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="LaSuBuStoreContainer">
+          <EntitySet Name="ContentManagements" EntityType="LaSuBu.Store.ContentManagements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StoreItems" EntityType="LaSuBu.Store.StoreItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transactions" EntityType="LaSuBu.Store.Transactions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TransItems" EntityType="LaSuBu.Store.TransItems" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TransactionTransItems" Association="LaSuBu.Store.FK_TransactionTransItems">
+            <End Role="Transactions" EntitySet="Transactions" />
+            <End Role="TransItems" EntitySet="TransItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ContentManagements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PageName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Headline" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StoreItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="20" />
+          <Property Name="Token" Type="nvarchar(max)" />
+          <Property Name="PayerID" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="State" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="ReferenceId" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TransItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TransactionId" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TransactionTransItems">
+          <End Role="Transactions" Type="LaSuBu.Store.Transactions" Multiplicity="1" />
+          <End Role="TransItems" Type="LaSuBu.Store.TransItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transactions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransItems">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LaSuBu" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
@@ -140,6 +141,7 @@
           <Property Type="Int32" Name="TransactionId" Nullable="false" />
           <Property Type="Int32" Name="Qty" />
           <NavigationProperty Name="Transaction" Relationship="LaSuBu.FK_TransactionTransItems" FromRole="TransItem" ToRole="Transaction" />
+          <Property Type="String" Name="Color" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_TransactionTransItems">
           <End Type="LaSuBu.Transaction" Role="Transaction" Multiplicity="1" />
@@ -203,7 +205,8 @@
     <EntitySetMapping Name="TransItems">
       <EntityTypeMapping TypeName="IsTypeOf(LaSuBu.TransItem)">
         <MappingFragment StoreEntitySet="TransItems">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Size" ColumnName="Size" />
           <ScalarProperty Name="Price" ColumnName="Price" />

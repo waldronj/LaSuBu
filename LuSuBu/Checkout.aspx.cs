@@ -72,7 +72,8 @@ namespace LuSuBu
                         Name = item.Product.ItemName,
                         Qty = item.Qty,
                         Size = item.Size,
-                        Price = item.Product.Cost.ToString(),
+                        Color = item.Color,
+                        Price = item.Product.Cost,
                         TransactionId = transId
                     };
 
@@ -90,11 +91,13 @@ namespace LuSuBu
             string signature = System.Configuration.ConfigurationManager.AppSettings["signature"].ToString();
             
             decimal amount = (decimal)cart.Sum(ci => ci.Qty * decimal.Parse(ci.Product.Cost));
-            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Test, userId, password, signature);
+            var configuration = new Moolah.PayPal.PayPalConfiguration(PaymentEnvironment.Live, userId, password, signature);
             var gateway = new Moolah.PayPal.PayPalExpressCheckout(configuration);
-            var cancelURL = "http://www.lasubu.com";
-            var confirmationUrl = "http://www.lasubu.com/confirmation.aspx";
-            
+            //var cancelURL = "http://www.lasubu.com/";
+            //var confirmationUrl = "http://www.lasubu.com/confirmation.aspx";
+            var cancelURL = "http://localhost:9999/";
+            var confirmationUrl = "http://localhost:9999/confirmation.aspx";
+
             var request = gateway.SetExpressCheckout(new Moolah.PayPal.OrderDetails
             {
                 OrderTotal = amount,
@@ -110,9 +113,22 @@ namespace LuSuBu
             }
             else
             {
-                // MakePayment();
+
+                var getTransId = Session["transId"].ToString();
+                var transId = int.Parse(getTransId);
+
+                LaSuBuContainer DB = new LaSuBuContainer();
+                Transaction updateTrans = (from x in DB.Transactions where x.Id == transId select x).SingleOrDefault();
+                updateTrans.Token = request.PayPalToken;
+                DB.SaveChanges();
+                
                 Response.Redirect(request.RedirectUrl);
             } 
+        }
+
+        public void StoreToken()
+        {
+          
         }
     }
 }

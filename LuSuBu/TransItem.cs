@@ -20,6 +20,7 @@ namespace LuSuBu
         public string Price { get; set; }
         public int TransactionId { get; set; }
         public Nullable<int> Qty { get; set; }
+        public string Color { get; set; }
     
         public virtual Transaction Transaction { get; set; }
     }

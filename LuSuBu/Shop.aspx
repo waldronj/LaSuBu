@@ -157,6 +157,20 @@
                 <br />
                 
             <br />
+            Color: <asp:DropDownList runat="server" ID="ddlColor">
+                        <asp:ListItem Value="-1">[- Select a Color -]</asp:ListItem>
+                        <asp:ListItem>Red</asp:ListItem>
+                        <asp:ListItem>Black</asp:ListItem>
+                        <asp:ListItem>Purple</asp:ListItem>
+                        <asp:ListItem>Green</asp:ListItem>
+                        <asp:ListItem>Blue</asp:ListItem>
+                        <asp:ListItem>White</asp:ListItem>
+                        <asp:ListItem>Yellow</asp:ListItem>
+                        <asp:ListItem>Pink</asp:ListItem>
+                        <asp:ListItem>Orange</asp:ListItem>
+                </asp:DropDownList>
+            <br />
+                    
             Size:   <asp:DropDownList ID="ddlSize" runat="server">
                         <asp:ListItem Value="-1">[- Select a Size -]</asp:ListItem>
                         <asp:ListItem>S</asp:ListItem>

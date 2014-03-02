@@ -36,14 +36,15 @@ namespace LuSuBu
            // TextBox ddlQty = (TextBox).FindControl("ddlQty");
             DropDownList ddlQty = (DropDownList)lvSelectedItem.Items[0].FindControl("ddlQty");
             DropDownList ddlSize = (DropDownList)lvSelectedItem.Items[0].FindControl("ddlSize");
-            Label lblTest = new Label();
+            DropDownList ddlColor = (DropDownList)lvSelectedItem.Items[0].FindControl("ddlColor");
+            //Label lblTest = new Label();
             // lblTest.Text = ddlQty.Text;
             //or
             int qty = int.Parse(ddlQty.SelectedValue.ToString());
             string size = ddlSize.SelectedValue.ToString();
-           
+            string color = ddlColor.SelectedValue;
             //cart item
-            CartItem item = new CartItem(theproduct, qty, size);
+            CartItem item = new CartItem(theproduct, qty, size, color);
 
             //cart logic
             List<CartItem> cart = null;

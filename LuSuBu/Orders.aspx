@@ -193,6 +193,7 @@
                     <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="Size" HeaderText="Size" SortExpression="Size" />
+                    <asp:BoundField DataField="Color" HeaderText="Color" SortExpression="Color" />
                     <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
                     <asp:BoundField DataField="TransactionId" HeaderText="TransactionId" SortExpression="TransactionId" />
                     <asp:BoundField DataField="Qty" HeaderText="Qty" SortExpression="Qty" />
