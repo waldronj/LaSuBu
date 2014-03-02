@@ -14,11 +14,11 @@
             
             
             <asp:ListView ID="lvShop" runat="server" DataKeyNames="Id" 
-        DataSourceID="dsStore" GroupItemCount="5" 
+        DataSourceID="dsStore" GroupItemCount="4" 
         OnSelectedIndexChanging="lvShop_SelectedIndexChanging">
         <AlternatingItemTemplate>
             <td id="Td1" runat="server" style="">
-                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'   CommandName="Select" Width="100px" Height="100px" CssClass="img-rounded"/>
+                <asp:ImageButton ID="ImageURLLabel" runat="server" ImageUrl='<%# Eval("ImageURL") %>'   CommandName="Select" Width="100%" Height="100%" CssClass="img-rounded"/>
                 <br />
                 <asp:Label ID="ItemNameLabel" runat="server" Text='<%# Eval("ItemName") %>' />
                 <br />
